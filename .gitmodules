@@ -1,3 +1,6 @@
 [submodule "Literature-Review/Readings"]
 	path = Literature-Review/Readings
 	url = https://github.com/brendonky18/Honors-Thesis.Literature-Review.Readings
+[submodule "CTFs"]
+	path = CTFs
+	url = https://github.com/brendonky18/Thesis.CTFs
