@@ -2,6 +2,7 @@ name: Github Action for LaTeX
 on: [push]
 jobs:
   build-tex:
+    runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v2
