@@ -3,7 +3,6 @@ on: [push]
 jobs:
   build-literature-review:
     name: Build Literature Review
-    needs: checkout
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -20,7 +19,6 @@ jobs:
         path: Literature-Review/Literature-Review.pdf
   build-research-proposal:
     name: Build Research Proposal
-    needs: checkout
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
