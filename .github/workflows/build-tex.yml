@@ -1,7 +1,7 @@
 name: Github Action for LaTeX
 on: [push]
 jobs:
-  build-tex:
+  build-literature-review:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -11,6 +11,16 @@ jobs:
       with:
         root_file: Literature-Review.tex
         working_directory: Literature-Review/
+    - name: upload PDFs
+      uses: actions/upload-artifact@v2
+      with:
+        name: Literature-Review
+        path: Literature-Review/Literature-Review.pdf
+  build-research-proposal:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
     - name: compile Research Proposal
       uses: xu-cheng/latex-action@v2
       with:
@@ -19,7 +29,5 @@ jobs:
     - name: upload PDFs
       uses: actions/upload-artifact@v2
       with:
-        name: Compiled-PDFs
-        path: |
-          Literature-Review/Literature-Review.pdf
-          Research/Research-Proposal.pdf
+        name: Research-Proposal
+        path: Research/Research-Proposal.pdf
