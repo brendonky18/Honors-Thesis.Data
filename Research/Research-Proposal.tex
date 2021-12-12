@@ -1,4 +1,6 @@
 \documentclass{article}
+\newcommand*{\bibpath}{B:/School/Honors-Thesis/common/bib}
+
 % packages
 \usepackage[
     backend=biber,
@@ -7,7 +9,7 @@
     sortcites
 ]
 {biblatex}
-\addbibresource{Literature-Review.bib}
+\addbibresource{\bibpath/Literature-Review.bib}
 % \usepackage[super,sort&compress]{natbib}
 \usepackage[
     letterpaper
@@ -117,6 +119,7 @@
 \section{Literature Review}
 
     % TODO: make content of literature review a separate document, and import it here, and into the literature review document with all of the formatting
+    \input{../Literature-Review/Literature-Review-body.tex}
 
 \section{Methods}
 
