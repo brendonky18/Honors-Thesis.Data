@@ -1,7 +1,7 @@
 # custom
 Supplementary/
 # ignore pdfs, will be complied by github action
-*.pdf
+**/*.pdf
 
 # submodules
 Readings/
@@ -327,3 +327,4 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,latex
 
+Literature-Review/Literature-Review.pdf
