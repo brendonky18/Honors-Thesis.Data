@@ -18,18 +18,11 @@ def smudge():
     for line in sys.stdin:
         # Smudge remote when pulling to local
         workingLine = ""
-        for line in sys.stdin:
-            # print(line)
-            # print(replace)
-            # print(replace in line)
-            # print(f"line: {line}")
-            # print(f"{NL_REPLACE in line}")
-            # print(f"{line.replace(NL_REPLACE, '')}")
-            if NL_REPLACE in line:
-                workingLine += line.replace(NL_REPLACE, "")
-            else:
-                print(f"{workingLine + line}", end="")
-                workingLine = ""
+        if NL_REPLACE in line:
+            workingLine += line.replace(NL_REPLACE, "")
+        else:
+            print(f"{workingLine + line}", end="")
+            workingLine = ""
         
         # print if it didn't on the last run
         if workingLine != "":
