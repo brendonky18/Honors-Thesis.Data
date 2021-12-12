@@ -6,7 +6,6 @@
 \newif\ifshowabstract
 \showabstractfalse
 
-% packages
 \usepackage[
     backend=biber,
     style=numeric,
@@ -15,20 +14,14 @@
 ]
 {biblatex}
 \addbibresource{\bibpath/Literature-Review.bib}
-% \usepackage[super,sort&compress]{natbib}
 \usepackage[
     letterpaper
 ]
 {geometry}
  
-% \usepackage[acronym]{glossaries}
 \usepackage{
-    dirtytalk,      % adds quotations through \say command
-    indentfirst,    % indents first paragraph after section
-    setspace        % allows for more line spacing options
-}
+    dirtytalk,          indentfirst,        setspace        }
 
-% TODO: create title
 \title{
     [Provisional Title]: \\
     \large [Subtitle]
@@ -36,7 +29,6 @@
 \author{Brendon Ky}
 \date{\today}
 
-% makes file double spaced
 \doublespacing
 \begin{document}
 
@@ -44,8 +36,7 @@
 
 \section{Introduction}
 
-    \subsection{Motivation} % at least 1 page
-
+    \subsection{Motivation} 
     The proliferation of the Internet and IoT devices means that we live in a world where computers are increasingly ubiquitous, inter-connected, and essential to daily life. 
     With this comes an equal need to ensure the security of these devices. 
     Currently, there is a tremendous disparity between the number of qualified cybersecurity professionals, and the amount needed to meet the industry's demands, a disparity which is only projected to grow in coming years.
@@ -73,13 +64,11 @@
     The job of cybersecurity, was the domain of IT professionals, not college students, and consequently, that's who all of the educational materials were developed for. 
     For decades, all materials relevant to teaching cybersecurity tailored towards developing skills and preparing for certifications, rather than establishing establishing a strong educational background suitable for an undergraduate course of study. 
     
-    % FIXME: not sure if I want to keep this part
-    This issue is further compounded by the many unique challenges of cybersecurity education. 
+        This issue is further compounded by the many unique challenges of cybersecurity education. 
     As a  field, it is highly intersectional, drawing on a broad range of topics such as systems architecture, cryptography, law enforcement, networking, software development and beyond. 
     Owing to it's unique and diverse nature, it is difficult to adopt practices from adjacent fields. 
 
-    \subsection{Current State of Cybersecurity Education} % about 1 page
-
+    \subsection{Current State of Cybersecurity Education} 
     One of the few points broadly agreed upon across the literature, is that there is a stark lack of agreement; 
     in other words, all of the researchers in this area can only agree to disagree.
     This disagreement is only further compounded by the despairing lack of quantitative research into the subject. 
@@ -106,15 +95,12 @@
     This approach, which can be described as \emph{maximal-guidance}, advocates for providing students with all of the requisite information to complete their hands-on activities. 
     Naturally, in the center of this maximalist-minimalist spectrum there also exists a compromise approach.
 
-    \subsection{Research Subject} % at least 1 page
-
-    % TODO: explain directions for future research from gaps in the literature
-    While there is a great amount of qualitative research expounding the various approaches, there is little in the way of empirically qualified data to validate these claims. 
+    \subsection{Research Subject} 
+        While there is a great amount of qualitative research expounding the various approaches, there is little in the way of empirically qualified data to validate these claims. 
     Even though the \emph{maximal-guidance} approach is founded upon a substantial body of psychological research, which offers the veneer or scientific justification, the reality is that this research is scarcely less qualitative or more rigorous than that presented in favor of \emph{minimal-guidance}. 
     In light of this, there is a tremendous opportunity for novel research to investigate the individual merits of each of the various schools of thought.
 
-    % TODO: explain what direction my research is headed.
-    I would like to propose precisely this as the subject of my research. 
+        I would like to propose precisely this as the subject of my research. 
     While there is a notable body of speculative work done on these various approaches, there has been virtually no serious investigation to validate their hypotheses. 
     For my research, I intend to design a number of educational hands-on activities founded in each of the identified schools of thought in order to experimentally affirm or reject the validity of the competing claims.
     To further this investigation, I also plan on conducting surveys of computer science students at this university, who have formerly taken cybersecurity courses which integrate hands-on activities into the course's instruction. 
@@ -123,8 +109,7 @@
 
 \section{Literature Review}
 
-    % TODO: make content of literature review a separate document, and import it here, and into the literature review document with all of the formatting
-    \input{../Literature-Review/Literature-Review-body.tex}
+        \input{../Literature-Review/Literature-Review-body.tex}
 
 \section{Methods}
 
@@ -153,16 +138,14 @@
 
     The ultimate goal will be to synthesize these three results in order to draw meaningful and empirically validated conclusions about each of various philosophies.
     
-    % TODO: write about professor feedback and assessment of work
-
+    
 \section{Communication}
 
     I will meet with my thesis committee chair, professor Kermani, at least once weekly for an hour, with additional meetings scheduled if it becomes necessary. 
     In these meetings, we will discuss and evaluate what I have accomplished over the previous week, and then plan what will be worked on over the following week. 
-    Beyond these meetings, I will be spending 10-15 hours weekly working on the research project. % is 10-15 hours appropriate for a 5 credit workload?
-    
+    Beyond these meetings, I will be spending 10-15 hours weekly working on the research project. %%
+     
 \section{Timeline}
 
-    % TODO
-
+    
 \end{document}
