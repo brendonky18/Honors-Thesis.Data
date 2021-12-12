@@ -9,14 +9,11 @@ jobs:
     - name: compile tex to pdf
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: |
-          Literature-Review/Literature-Review.tex
-          Research/Research-Proposal.tex
+        root_file: Literature-Review.tex
+        working_directory: Literature-Review/
     - name: upload pdf
       uses: actions/upload-artifact@v2
       with:
         name: Documents
-        path: |
-          Literature-Review/Literature-Review.pdf
-          Research/Research-Proposal.pdf
+        path: Literature-Review/Literature-Review.pdf
 
