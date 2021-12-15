@@ -2,6 +2,8 @@
 Supplementary/
 # ignore pdfs, will be complied by github action
 **/*.pdf
+# ignore word docs
+*.docx
 
 # submodules
 Readings/

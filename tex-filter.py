@@ -18,18 +18,11 @@ def smudge():
     for line in sys.stdin:
         # Smudge remote when pulling to local
         workingLine = ""
-        for line in sys.stdin:
-            # print(line)
-            # print(replace)
-            # print(replace in line)
-            # print(f"line: {line}")
-            # print(f"{NL_REPLACE in line}")
-            # print(f"{line.replace(NL_REPLACE, '')}")
-            if NL_REPLACE in line:
-                workingLine += line.replace(NL_REPLACE, "")
-            else:
-                print(f"{workingLine + line}", end="")
-                workingLine = ""
+        if NL_REPLACE in line:
+            workingLine += line.replace(NL_REPLACE, "")
+        else:
+            print(f"{workingLine + line}", end="")
+            workingLine = ""
         
         # print if it didn't on the last run
         if workingLine != "":
@@ -46,35 +39,35 @@ def clean():
         # captures punctuation marks, but ignores those in comments
         commentRegex = f"(?(?=%)(?:.*)\n|{punctuationRegex})"
 
-        if "\\begin{document}" in line:
-            readingFromDocBody = True
-        elif "\\end{document}" in line:
-            readingFromDocBody = False        
+        # if "\\begin{document}" in line:
+        #     readingFromDocBody = True
+        # elif "\\end{document}" in line:
+        #     readingFromDocBody = False        
 
-        if readingFromDocBody:
-            splitList = regex.split(commentRegex, line)
-            # print(splitList)
-            resultListItr = iter(splitList)
+        # if readingFromDocBody:
+        splitList = regex.split(commentRegex, line)
+        # print(splitList)
+        resultListItr = iter(splitList)
 
-            curItem = next(resultListItr, None)
-            nextItem = next(resultListItr, None)
-            while nextItem is not None:
-                # next item is punctuation, so combine them
-                # print(f"cur item:{curItem}")
-                # print(f"next item:{nextItem}")
-                # print(f"regex match: {regex.match(punctuationRegex, nextItem)}")
-                if curItem.endswith('\n'):
-                    print(f"{curItem}")
-                elif regex.match(punctuationRegex, nextItem) is not None:
-                    print(f"{curItem + nextItem}", end=NL_REPLACE)
-                    nextItem = next(resultListItr, None)
-                else:
-                    print(f"{curItem}")
-                
-                curItem, nextItem = nextItem, next(resultListItr, None)
-            print(f"{curItem}", end="")
-        else:
-            print(f"{line}", end="")
+        curItem = next(resultListItr, None)
+        nextItem = next(resultListItr, None)
+        while nextItem is not None:
+            # next item is punctuation, so combine them
+            # print(f"cur item:{curItem}")
+            # print(f"next item:{nextItem}")
+            # print(f"regex match: {regex.match(punctuationRegex, nextItem)}")
+            if curItem.endswith('\n'):
+                print(f"{curItem}")
+            elif regex.match(punctuationRegex, nextItem) is not None:
+                print(f"{curItem + nextItem}", end=NL_REPLACE)
+                nextItem = next(resultListItr, None)
+            else:
+                print(f"{curItem}")
+            
+            curItem, nextItem = nextItem, next(resultListItr, None)
+        print(f"{curItem}", end="")
+        # else:
+        #     print(f"{line}", end="")
 
 
 if __name__ == '__main__':

@@ -1,5 +1,9 @@
 \documentclass{article}
-% packages
+
+\newcommand*{\bibpath}{B:/School/Honors-Thesis/common/bib}
+\newif\ifshowabstract
+\showabstracttrue
+
 \usepackage[
     backend=biber,
     style=numeric,
@@ -7,14 +11,12 @@
     sortcites
 ]
 {biblatex}
-\addbibresource{Literature-Review.bib}
-% \usepackage[super,sort&compress]{natbib}
+\addbibresource{\bibpath/Literature-Review.bib}
 \usepackage[
     letterpaper
 ]
 {geometry}
  
-% \usepackage[acronym]{glossaries}
 \usepackage{dirtytalk}
 \usepackage{indentfirst}
 
