@@ -15,18 +15,20 @@ class FilterMode(Enum):
 NL_REPLACE = "%%\n"
 
 def smudge():
+    workingLine = ""
     for line in sys.stdin:
         # Smudge remote when pulling to local
-        workingLine = ""
         if NL_REPLACE in line:
+            # print(f"a: {line.replace(NL_REPLACE, '')}")
             workingLine += line.replace(NL_REPLACE, "")
+            # print(f'a: {workingLine}')
         else:
-            print(f"{workingLine + line}", end="")
+            print(f"{workingLine}{line}", end="")
             workingLine = ""
         
         # print if it didn't on the last run
-        if workingLine != "":
-            print(f"b: {workingLine}")
+        # if workingLine != "":
+        # print(f"{workingLine}")
 
 # clean local before commit to remote
 def clean():
