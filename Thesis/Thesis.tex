@@ -1,0 +1,86 @@
+
+
+
+
+\documentclass{report}
+
+\newcommand*{\bibpath}{../common/bib}
+\newif\ifshowabstract
+\showabstractfalse
+\newif\ifshowconclusion
+\showconclusionfalse
+
+\newif\iffullsubmission
+\fullsubmissiontrue
+
+
+\usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=nty,
+    sortcites
+]
+{biblatex}
+\addbibresource{\bibpath/Literature-Review.bib}
+\usepackage[
+    letterpaper
+]
+{geometry}
+ 
+\usepackage{dirtytalk}
+\usepackage{indentfirst}
+
+\title{
+    Turning off the Projector: \\
+    Exploring Alternative Modes of Education in Cybersecurity\\
+    \large University of Massachusetts Amherst
+}
+\author{Brendon Ky}
+\date{May 2022}
+
+\pagenumbering{roman}
+\begin{document}
+\iffullsubmission
+\maketitle
+
+
+\tableofcontents
+\setcounter{page}{1}
+
+\chapter{Abstract}
+    \input{body/abstract.tex}
+\fi
+
+\chapter{Introduction}
+    \input{body/introduction.tex}
+\pagenumbering{arabic}
+    
+\chapter{Literature Review}
+    \input{../Literature-Review/Literature-Review-body.tex}
+
+\chapter{Methods}
+    \input{body/methods.tex}
+
+\chapter{Results}
+    \input{body/results.tex}
+
+\chapter{Discussion}
+    \input{body/discussion.tex}
+
+\chapter{Conclusions}
+    \input{body/conclusions.tex}
+
+\chapter{Recommendations}
+    \input{body/recommendations.tex}
+
+\chapter{Acknowledgements}
+    \input{body/acknowledgements.tex}
+
+\chapter{References}
+\printbibliography
+
+\appendix
+\chapter{Appendix}
+\input{body/appendix.tex}
+
+\end{document}
