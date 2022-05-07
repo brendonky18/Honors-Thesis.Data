@@ -26,27 +26,24 @@
     letterpaper
 ]
 {geometry}
- 
-\usepackage{dirtytalk}
-\usepackage{indentfirst}
-\usepackage[indent=0.5in]{parskip}
-\usepackage{graphicx}
-\usepackage{bookmark}
 
+\usepackage{dirtytalk}              \usepackage{indentfirst}            \usepackage[indent=0.5in]{parskip}  \usepackage{setspace}               \doublespacing
+\usepackage{graphicx}               \usepackage{bookmark}               
 \pagenumbering{roman}
 \begin{document}
-    \iffullsubmission
-        \input{title.tex}
-
-        \tableofcontents
-        \setcounter{page}{1}
+    \iffullsubmission        
+        \begin{singlespace}
+            \input{title.tex}
+            
+            \tableofcontents
+        \end{singlespace}
 
         \chapter*{Abstract}
         \addcontentsline{toc}{chapter}{Abstract}  
 
             \input{body/abstract.tex}
     \fi
-
+    
     \chapter{Introduction}
         \input{body/introduction.tex}
     \pagenumbering{arabic}
