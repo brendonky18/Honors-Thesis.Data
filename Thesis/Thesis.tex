@@ -28,7 +28,7 @@
 {geometry}
 
 \usepackage{dirtytalk}              \usepackage{indentfirst}            \usepackage[indent=0.5in]{parskip}  \usepackage{setspace}               \doublespacing
-\usepackage{graphicx}               \usepackage{bookmark}               
+\usepackage{graphicx}               \usepackage{bookmark}               \usepackage{pdfpages}               
 \pagenumbering{roman}
 \begin{document}
     \iffullsubmission        
@@ -73,6 +73,6 @@
     \printbibliography[heading=bibintoc, title={References}]
 
     \appendix
-    \chapter{Appendix}
+    \chapter{Student Surveys}\label{app:surveys}
     \input{body/appendix.tex}
 \end{document}
