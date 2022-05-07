@@ -5,6 +5,9 @@ Supplementary/
 # ignore word docs
 *.docx
 
+# include survey results
+!CTF-Surveys/**/*
+
 # submodules
 Readings/
 CTFs/
