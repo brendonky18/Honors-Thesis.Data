@@ -29,12 +29,14 @@
  
 \usepackage{dirtytalk}
 \usepackage{indentfirst}
+\usepackage[indent=0.5in]{parskip}
 \usepackage{graphicx}
+\usepackage{bookmark}
 
 \pagenumbering{roman}
 \begin{document}
     \iffullsubmission
-                \input{title.tex}
+        \input{title.tex}
 
         \tableofcontents
         \setcounter{page}{1}
@@ -65,7 +67,8 @@
     \chapter{Recommendations}
         \input{body/recommendations.tex}
 
-    \chapter{Acknowledgements}
+    \chapter*{Acknowledgements}
+    \addcontentsline{toc}{chapter}{Acknowledgements}  
         \input{body/acknowledgements.tex}
 
     \chapter{References}
