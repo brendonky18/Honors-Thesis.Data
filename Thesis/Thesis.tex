@@ -31,7 +31,7 @@
 \usepackage{graphicx}               \usepackage{bookmark}               \usepackage{pdfpages}               
 \pagenumbering{roman}
 \begin{document}
-    \iffullsubmission        
+        \iffullsubmission        
         \begin{singlespace}
             \input{title.tex}
             
@@ -74,5 +74,8 @@
 
     \appendix
     \chapter{Student Surveys}\label{app:surveys}
-    \input{body/appendix.tex}
+    \input{appendix/surveys.tex}
+
+    \chapter{CTFs}\label{app:CTFs}
+    \input{appendix/ctfs.tex}
 \end{document}
