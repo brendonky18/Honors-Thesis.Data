@@ -11,7 +11,7 @@ To assess how different design approaches impacts the learning of content knowle
 This activity was called \say{crypto cracking}. %%
 To complement this knowledge-based activity, a second activity involving reverse engineering was created, to evaluate how activities based on skills might differ from those based on knowledge. %%
 This second activity was called \say{going backwards}. %%
-More specific information about both of the activities can be found in Appendices~\ref{subsec:CTFs-cc} and \ref{subsec:CTFs-gb}.
+More specific information about the \say{crypto cracking} and \say{going backwards} activities can be found in Appendices~\ref{subsec:CTFs-cc} and \ref{subsec:CTFs-gb} respectively.
 
 \subheading{Crypto Cracking}
     RSA is a widely used cryptosystem that is essential to modern cryptography. %%
@@ -21,6 +21,7 @@ As such, the crypto cracking activity was designed to challenge a student's conc
  of RSA. Besides this, the only knowledge required was some basic scripting abilities, and a basic understanding of computer networking, and network traffic analysis. %%
 Something which all of the participants did have knowledge of. 
 
+        
     To complete the activity, students were required to solve three tasks in sequence. %%
 The first task required students to brute-force an RSA public key that was created using small numbers, and then use that information to reconstruct the corresponding private key. %%
 The second task requires a student to reveal a plaintext from a ciphertext that was encrypted using a small public exponent and no padding scheme. %%
@@ -75,6 +76,39 @@ Offering guidance gives the instructor far greater control over the experience, 
 They explain to the students the exact steps they must complete in order to complete the challenge, and motivate why these steps make sense or are necessary. 
 
 \heading{Design of Experiment}
+    The six challenges were offered to the students taking the course CS 561 System Defense and Test. %%
+As an incentive, a small amount of extra credit was offered to any student for simply attempting the challenges and completing a survey after each. %%
+Each participant was asked to work on the two activities, and they were given approximately one week to work on each challenge. %%
+The challenges were accessed through an instance of the CTFd platform, which was hosted on the UMass network, and used as part of the class. %%
+Students were then asked to use one of three instruction sets, which were assigned based on the student's birth month. %%
+This was done for two reasons. %%
+First, this was a simple way ensure a sufficiently random distribution of the instructions. %%
+Second, by assigning each design approach to a specific set of months, it ensured that each student would receive the equivalent set instructions for both activities. 
 
 \heading{Design of Student Surveys}
+    After attempting each challenge, the students were asked to complete two surveys. %%
+The survey was intended to gather information in four primary areas:
+    \begin{enumerate}
+        \item The student's prior experience with hands-on activities.
+        \item The student's prior knowledge on the topic covered in the challenge.
+        \item How much the student learned by working on the challenge.
+        \item How the design of the instruction impacted their learning. 
+    \end{enumerate}
+    
+    The surveys directly asked students to evaluate themselves and their experience, instead of attempting to indirectly assess their knowledge through some kind of test. %%
+This decision was made for a number of reasons. 
+    \begin{enumerate}
+        \item A student's performance on a test may not be a reliable indicator of their knowledge or skills.
+        \item The design and questions on such a test could easily bias or otherwise skew the results. 
+        \item Requiring students to take an exam could reduce participation. 
+        \item Requiring students to take an exam would exacerbate the response bias.
+    \end{enumerate}
+
+    In the interest of maximizing the sample size, and mitigating any potential bias ---%%
+ beyond any response bias that was already introduced by asking for volunteers and offering extra credit for participation ---%%
+ it was decided against requiring any kind of secondary assessment. 
+
+    
+    The full surveys can be found in Appendix \ref{sec:blank-surveys}.
+
 
