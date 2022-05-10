@@ -10,7 +10,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 \providecommand{\heading}[1]{\section{#1}}
+
+
+
+
 
 
 
@@ -22,7 +38,19 @@
 
 
 
+
+
+
+
+
+
+
+
 \heading{Design of Activities}
+
+
+
+
 
 
 
@@ -30,7 +58,15 @@
 
 
 
+
+
+
+
 In order to evaluate both, two sets of three activities were designed. %%
+
+
+
+
 
 
 
@@ -38,7 +74,15 @@ To assess how different design approaches impacts the learning of content knowle
 
 
 
+
+
+
+
 This activity was called \say{crypto cracking}. %%
+
+
+
+
 
 
 
@@ -46,7 +90,15 @@ To complement this knowledge-based activity, a second activity involving reverse
 
 
 
+
+
+
+
 This second activity was called \say{going backwards}. %%
+
+
+
+
 
 
 
@@ -58,7 +110,19 @@ More specific information about the \say{crypto cracking} and \say{going backwar
 
 
 
+
+
+
+
+
+
+
+
 \subheading{Crypto Cracking}
+
+
+
+
 
 
 
@@ -66,7 +130,15 @@ More specific information about the \say{crypto cracking} and \say{going backwar
 
 
 
+
+
+
+
 Working with RSA requires a strong conceptual understanding of its mathematics. %%
+
+
+
+
 
 
 
@@ -74,11 +146,23 @@ As such, the crypto cracking activity was designed to challenge a student's conc
 
 
 
+
+
+
+
  in other words, their content knowledge ---%%
 
 
 
+
+
+
+
  of RSA. Besides this, the only knowledge required was some basic scripting abilities, and a basic understanding of computer networking and network traffic analysis. %%
+
+
+
+
 
 
 
@@ -90,7 +174,19 @@ Something which all of the participants did have knowledge of.
 
 
 
+
+
+
+
+
+
+
+
         
+
+
+
+
 
 
 
@@ -98,7 +194,15 @@ Something which all of the participants did have knowledge of.
 
 
 
+
+
+
+
 The first task required students to brute-force an RSA public key that was created using small numbers, and then use that information to reconstruct the corresponding private key. %%
+
+
+
+
 
 
 
@@ -106,11 +210,23 @@ The second task requires a student to reveal a plaintext from a ciphertext that 
 
 
 
+
+
+
+
 The final task requires students to once again reveal the two prime numbers used to compute the public key. %%
 
 
 
+
+
+
+
 Unlike in the first task, the key is far too large to reasonably brute force; %%
+
+
+
+
 
 
 
@@ -122,7 +238,19 @@ instead, it requires students to utilize Fermat's factorization method.
 
 
 
+
+
+
+
+
+
+
+
 \subheading{Going Backwards}
+
+
+
+
 
 
 
@@ -130,7 +258,15 @@ instead, it requires students to utilize Fermat's factorization method.
 
 
 
+
+
+
+
 The going backwards activity was designed to challenge a students skills in reverse engineering. %%
+
+
+
+
 
 
 
@@ -138,11 +274,23 @@ In the context of cybersecurity reverse engineering is frequently accompanied by
 
 
 
+
+
+
+
 In order to ensure that the activity solely focused on the skill of reverse engineering, and not a student's knowledge of binary exploitation, they were asked to reverse engineer a program written in python. %%
 
 
 
+
+
+
+
 The only prerequisite knowledge is familiarity with the python programming language, and familiarity with the Linux command line utility netcat. %%
+
+
+
+
 
 
 
@@ -154,11 +302,27 @@ Again, all participants were familiar with these.
 
 
 
+
+
+
+
+
+
+
+
     The activity involves reverse engineering an FTP server, written in python. %%
 
 
 
+
+
+
+
 To complete the activity, they must find out that the server's default configuration includes pre-configured log in credentials for an account with elevated permissions. %%
+
+
+
+
 
 
 
@@ -170,7 +334,19 @@ They must then reverse the encoding and hash on the default password, which will
 
 
 
+
+
+
+
+
+
+
+
 \heading{Design of Instruction Sets}
+
+
+
+
 
 
 
@@ -178,7 +354,15 @@ They must then reverse the encoding and hash on the default password, which will
 
 
 
+
+
+
+
 These basic instructions were then supplemented by one of three additional instruction sets, which provided more specific guidance about how the student should try to approach and solve the challenge were then provided. %%
+
+
+
+
 
 
 
@@ -186,7 +370,15 @@ Each of the supplemental instructions corresponded to one of the identified peda
 
 
 
+
+
+
+
 The combination of the two activities with their respective instructions, and the supplemental instructions corresponding to the three different design philosophies, yielded a total of six distinct capture the flag challenges, or CTFs. %%
+
+
+
+
 
 
 
@@ -198,7 +390,19 @@ All of these instructions can be found in Appendices~\ref{subsubsec:CTFs-cc-inst
 
 
 
+
+
+
+
+
+
+
+
     \subheading{Minimal Guidance}
+
+
+
+
 
 
 
@@ -206,11 +410,27 @@ All of these instructions can be found in Appendices~\ref{subsubsec:CTFs-cc-inst
 
 
 
+
+
+
+
 Such an approach is rooted in the belief that students learn best when motivated by their own independent inquiry; %%
 
 
 
+
+
+
+
 any guidance provided by an instructor only hampers learning by short-circuiting the process through which knowledge and understanding is formed. 
+
+
+
+
+
+
+
+
 
 
 
@@ -226,7 +446,19 @@ any guidance provided by an instructor only hampers learning by short-circuiting
 
 
 
+
+
+
+
+
+
+
+
     \subheading{Intermediate Guidance}
+
+
+
+
 
 
 
@@ -234,7 +466,15 @@ any guidance provided by an instructor only hampers learning by short-circuiting
 
 
 
+
+
+
+
 While they acknowledge the body of evidence which seems to demonstrate the inefficacy of a minimal guidance approach, they also proffer that cybersecurity education should be differentiated. %%
+
+
+
+
 
 
 
@@ -242,11 +482,23 @@ The research cited by \citeauthor{J-Sweller} focuses on student's retention of k
 
 
 
+
+
+
+
 They argue that in cybersecurity, it is also essential for students to learn skills. %%
 
 
 
+
+
+
+
 While minimal guidance may not be an effective way to impart knowledge, they theorize that it may work for developing skills. %%
+
+
+
+
 
 
 
@@ -258,7 +510,19 @@ To address both the informational and skills aspect of cybersecurity, they hypot
 
 
 
+
+
+
+
+
+
+
+
         The design of the intermediate guidance instruction reflects this philosophy. %%
+
+
+
+
 
 
 
@@ -270,7 +534,19 @@ The students are not provided explicitly with the solutions to each activity, ho
 
 
 
+
+
+
+
+
+
+
+
     \subheading{Maximal Guidance}
+
+
+
+
 
 
 
@@ -278,11 +554,23 @@ The students are not provided explicitly with the solutions to each activity, ho
 
 
 
+
+
+
+
 This approach calls for extremely explicit guidance to be given to students. %%
 
 
 
+
+
+
+
 Asking a student to complete a task without any direction simply overloads their mental capacity. %%
+
+
+
+
 
 
 
@@ -294,7 +582,19 @@ Offering guidance gives the instructor far greater control over the experience, 
 
 
 
+
+
+
+
+
+
+
+
         The instruction sets designed under this approach are by far the most extensive. %%
+
+
+
+
 
 
 
@@ -306,7 +606,19 @@ They explain to the students the exact steps they must complete in order to comp
 
 
 
+
+
+
+
+
+
+
+
 \heading{Design of Experiment}
+
+
+
+
 
 
 
@@ -314,7 +626,15 @@ They explain to the students the exact steps they must complete in order to comp
 
 
 
+
+
+
+
 As an incentive, a small amount of extra credit was offered to any student for simply attempting the challenges and completing a survey after each. %%
+
+
+
+
 
 
 
@@ -322,7 +642,15 @@ Each participant was asked to work on the two activities, and they were given ap
 
 
 
+
+
+
+
 The challenges were accessed through an instance of the CTFd platform, which was hosted on the UMass network, and used as part of the class. %%
+
+
+
+
 
 
 
@@ -330,11 +658,23 @@ Students were then asked to use one of three instruction sets, which were assign
 
 
 
+
+
+
+
 This was done for two reasons. %%
 
 
 
+
+
+
+
 First, this was a simple way ensure a sufficiently random distribution of the instructions. %%
+
+
+
+
 
 
 
@@ -346,7 +686,19 @@ Second, by assigning each design approach to a specific set of months, it ensure
 
 
 
+
+
+
+
+
+
+
+
 \heading{Design of Student Surveys}
+
+
+
+
 
 
 
@@ -354,11 +706,23 @@ Second, by assigning each design approach to a specific set of months, it ensure
 
 
 
+
+
+
+
 The survey was intended to gather information in four primary areas:
 
 
 
+
+
+
+
     \begin{enumerate}
+
+
+
+
 
 
 
@@ -366,7 +730,15 @@ The survey was intended to gather information in four primary areas:
 
 
 
+
+
+
+
         \item The student's prior knowledge on the topic covered in the challenge.
+
+
+
+
 
 
 
@@ -374,11 +746,23 @@ The survey was intended to gather information in four primary areas:
 
 
 
+
+
+
+
         \item How the design of the instruction impacted their learning. 
 
 
 
+
+
+
+
     \end{enumerate}
+
+
+
+
 
 
 
@@ -386,7 +770,15 @@ The survey was intended to gather information in four primary areas:
 
 
 
+
+
+
+
     The surveys directly asked students to evaluate themselves and their experience, instead of attempting to indirectly assess their knowledge through some kind of test. %%
+
+
+
+
 
 
 
@@ -394,7 +786,15 @@ This decision was made for a number of reasons.
 
 
 
+
+
+
+
     \begin{enumerate}
+
+
+
+
 
 
 
@@ -402,7 +802,15 @@ This decision was made for a number of reasons.
 
 
 
+
+
+
+
         \item The design and questions on such a test could easily bias or otherwise skew the results. 
+
+
+
+
 
 
 
@@ -410,11 +818,27 @@ This decision was made for a number of reasons.
 
 
 
+
+
+
+
         \item Requiring students to take an exam would exacerbate the response bias.
 
 
 
+
+
+
+
     \end{enumerate}
+
+
+
+
+
+
+
+
 
 
 
@@ -426,7 +850,15 @@ This decision was made for a number of reasons.
 
 
 
+
+
+
+
  beyond any response bias that was already introduced by asking for volunteers and offering extra credit for participation ---%%
+
+
+
+
 
 
 
@@ -438,7 +870,27 @@ This decision was made for a number of reasons.
 
 
 
+
+
+
+
+
+
+
+
     The full surveys can be found in Appendix \ref{sec:blank-surveys}.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

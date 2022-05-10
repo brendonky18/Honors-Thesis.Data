@@ -2,7 +2,19 @@
 
 
 
+
+
+
+
 \providecommand{\subheading}[1]{\subsection{#1}}
+
+
+
+
+
+
+
+
 
 
 
@@ -18,7 +30,23 @@
 
 
 
+
+
+
+
+
+
+
+
     \subheading{Design}
+
+
+
+
+
+
+
+
 
 
 
@@ -34,7 +62,19 @@
 
 
 
+
+
+
+
+
+
+
+
         \subsubsection{Basic Instructions}
+
+
+
+
 
 
 
@@ -42,7 +82,15 @@
 
 
 
+
+
+
+
             Below are the basic instructions provided to all students for the crypto cracking activity.
+
+
+
+
 
 
 
@@ -50,7 +98,15 @@
 
 
 
+
+
+
+
                     You are going to be assigned a specific set of instructions, please do not refer to any of the other instruction sets.
+
+
+
+
 
 
 
@@ -58,7 +114,15 @@
 
 
 
+
+
+
+
 This is not meant to be an assessment of your knowledge, and you will not be impacted in any way regardless of how much you are able to complete. 
+
+
+
+
 
 
 
@@ -66,7 +130,15 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
                 \section*{Instructions}
+
+
+
+
 
 
 
@@ -78,7 +150,19 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
+
+
+
+
                     To our modern understanding, RSA is theoretically sound, however, there are several ways which if implemented incorrectly, can result in it being incredibly trivial to break. 
+
+
+
+
 
 
 
@@ -86,7 +170,15 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
                 \subsubsection*{Challenge Description}
+
+
+
+
 
 
 
@@ -94,7 +186,15 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
                     There is 1 server, and 3 users (numbered 0, 1, and 2) which are communicating to this server using an encrypted protocol. 
+
+
+
+
 
 
 
@@ -102,7 +202,15 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
 You can connect to this port with ssh, and send the output to wireshark.
+
+
+
+
 
 
 
@@ -110,7 +218,15 @@ You can connect to this port with ssh, and send the output to wireshark.
 
 
 
+
+
+
+
                     It accepts two arguments, the user number that you are connecting to, and your student username which you use to \lstinline`ssh` into the swarm network with.
+
+
+
+
 
 
 
@@ -118,7 +234,15 @@ You can connect to this port with ssh, and send the output to wireshark.
 
 
 
+
+
+
+
                     close wireshark, exit the ssh session by hitting Ctrl+C, and wait about 20-30 seconds before running the script again.
+
+
+
+
 
 
 
@@ -130,11 +254,27 @@ You can connect to this port with ssh, and send the output to wireshark.
 
 
 
+
+
+
+
+
+
+
+
                     So for example, if I wanted to connect to user \lstinline`0`, and my student account name is \lstinline`bky`, I run \lstinline`./remote_pcap.sh 0 bky`. 
 
 
 
+
+
+
+
                     Of course, you must have wireshark installed on your local computer, which you can get by running \lstinline`sudo apt-get install wireshark` on Ubuntu or other Debian-based distros.
+
+
+
+
 
 
 
@@ -146,7 +286,19 @@ You can connect to this port with ssh, and send the output to wireshark.
 
 
 
+
+
+
+
+
+
+
+
                     You should start with user 0, the password for user 0 is \lstinline`start_here`. %%
+
+
+
+
 
 
 
@@ -154,7 +306,15 @@ Each user is transmitting the password for the subsequent user over the encrypte
 
 
 
+
+
+
+
 user 0 is sending user 1's password, and user 1 is sending user 2's. %%
+
+
+
+
 
 
 
@@ -166,7 +326,19 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
+
+
+
+
                 \subsubsection*{Protocol Description}
+
+
+
+
 
 
 
@@ -174,7 +346,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \begin{enumerate}
+
+
+
+
 
 
 
@@ -182,7 +362,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \item The server acknowledges by sending it's public key.
+
+
+
+
 
 
 
@@ -190,7 +378,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \begin{enumerate}[1.]
+
+
+
+
 
 
 
@@ -198,7 +394,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             \item The number is then encrypted with the server's public key.
+
+
+
+
 
 
 
@@ -206,7 +410,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             \begin{itemize}
+
+
+
+
 
 
 
@@ -214,7 +426,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                                 \item Meaning that if the key is \textit{n} bits long, it will xor the message in blocks of \textit{n} bits at a time, until it has encrypted the entire message.
+
+
+
+
 
 
 
@@ -222,7 +442,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             \end{itemize}
+
+
+
+
 
 
 
@@ -230,11 +458,23 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \end{enumerate}
 
 
 
+
+
+
+
                         \item All bytes are in network byte order, meaning that everything is in big endian.
+
+
+
+
 
 
 
@@ -246,7 +486,19 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
+
+
+
+
                 \section*{Additional Notes}
+
+
+
+
 
 
 
@@ -254,7 +506,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \begin{itemize}
+
+
+
+
 
 
 
@@ -262,7 +522,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \item If you were born from May to August, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/crypto-cracking/notes_1.md}{here}.
+
+
+
+
 
 
 
@@ -270,7 +538,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \end{itemize}
+
+
+
+
 
 
 
@@ -278,7 +554,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
         \newpage
+
+
+
+
 
 
 
@@ -286,7 +570,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
             {\parindent0pt\singlespacing
+
+
+
+
 
 
 
@@ -294,11 +586,27 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \subsection*{\textit{Additional Notes}}
 
 
 
+
+
+
+
                         If you are unsure where to start, I would recommend reviewing the simplified \href{https://simple.wikipedia.org/wiki/RSA_algorithm}{wikipedia page} on RSA, which contains a good walk-through example of encrypting and decrypting a message with RSA.
+
+
+
+
+
+
+
+
 
 
 
@@ -310,7 +618,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
             }
+
+
+
+
 
 
 
@@ -318,7 +634,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
         \subsubsection{Intermediate Guidance Instructions}
+
+
+
+
 
 
 
@@ -326,11 +650,23 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                 \section*{Instruction Set 1}
 
 
 
+
+
+
+
                     \subsection*{\textit{Additional Notes}}
+
+
+
+
 
 
 
@@ -342,7 +678,19 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
+
+
+
+
                         \subsubsection*{Cracking User 0}
+
+
+
+
 
 
 
@@ -350,7 +698,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \subsubsection*{Cracking User 1}
+
+
+
+
 
 
 
@@ -358,7 +714,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                         \subsubsection*{Cracking User 2}
+
+
+
+
 
 
 
@@ -366,7 +730,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \subsection*{\textit{Still Stuck}}
+
+
+
+
 
 
 
@@ -378,7 +750,19 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
+
+
+
+
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
+
+
+
+
 
 
 
@@ -386,7 +770,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
         \newpage
+
+
+
+
 
 
 
@@ -394,7 +786,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
             {\parindent0pt\singlespacing
+
+
+
+
 
 
 
@@ -402,7 +802,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                     \subsection*{\textit{Additional Notes}}
+
+
+
+
 
 
 
@@ -414,7 +822,19 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
+
+
+
+
                         \subsubsection*{Cracking User 0}
+
+
+
+
 
 
 
@@ -422,7 +842,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             This should launch wireshark and reveal quite a lot of traffic, we only care about a small portion of this.
+
+
+
+
 
 
 
@@ -430,7 +858,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             This will show us only the messages we're interested in.
+
+
+
+
 
 
 
@@ -438,7 +874,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             To start we need to get the public key. 
+
+
+
+
 
 
 
@@ -446,7 +890,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             This message will contain two other fields: \lstinline`E` and \lstinline`N`, which correspond to the public exponent and modulus respectively.
+
+
+
+
 
 
 
@@ -454,7 +906,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             The vulnerability in public key used by user 0, is that the modulus \lstinline`N` is a very small number (at least as far as RSA keys are concerned). 
+
+
+
+
 
 
 
@@ -462,7 +922,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             Depending on how powerful your computer is, your speed will vary. 
+
+
+
+
 
 
 
@@ -470,7 +938,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             Once you've calculated the two factors \lstinline`p` and \lstinline`q`, you can easily use them to calculate the private key \lstinline`d`. 
+
+
+
+
 
 
 
@@ -478,7 +954,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             $\varphi(n)$ is \href{https://en.wikipedia.org/wiki/Euler                            Since we now know all of these values, it is trivial to calculate the secret key \lstinline`d`.
+
+
+
+
 
 
 
@@ -486,7 +970,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             This use of the \lstinline`pow` function requires at least python 3.8.
+
+
+
+
 
 
 
@@ -494,7 +986,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             The encrypted symmetric key is sent in a \lstinline`SECRET_FLAG` message, in the field \lstinline`XOR_KEY`, and the encrypted flag is in the field \lstinline`ENC_FLAG`
+
+
+
+
 
 
 
@@ -502,7 +1002,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             You then use this to get the password for the next user.
+
+
+
+
 
 
 
@@ -510,7 +1018,15 @@ User 2 is transmitting the final flag which you will submit.
 
 
 
+
+
+
+
                             The vulnerability in the public key used by user 1, is that the public exponent is incredibly small, and the message is not padded at all. %%
+
+
+
+
 
 
 
@@ -518,7 +1034,15 @@ This means that the the message raised by the public exponent is still less than
 
 
 
+
+
+
+
 Because the encoded message (the symmetric key) \lstinline`c` is calculated by taking the plain message to the power of \lstinline`e`, you can reverse this process to get the symmetric key. %%
+
+
+
+
 
 
 
@@ -526,7 +1050,15 @@ Simply calculate the original message by taking the \lstinline`e`th root of \lst
 
 
 
+
+
+
+
                         \subsubsection*{Cracking User 2}
+
+
+
+
 
 
 
@@ -534,7 +1066,15 @@ Simply calculate the original message by taking the \lstinline`e`th root of \lst
 
 
 
+
+
+
+
 Regardless of how large two primes factors are, if they are close to each other, then they can efficiently be solved for using \href{https://en.wikipedia.org/wiki/Fermat
+
+
+
+
 
 
 
@@ -542,7 +1082,15 @@ Regardless of how large two primes factors are, if they are close to each other,
 
 
 
+
+
+
+
             }
+
+
+
+
 
 
 
@@ -550,7 +1098,19 @@ Regardless of how large two primes factors are, if they are close to each other,
 
 
 
+
+
+
+
 \heading{Going Backwards}\label{subsec:CTFs-gb}
+
+
+
+
+
+
+
+
 
 
 
@@ -566,7 +1126,23 @@ Regardless of how large two primes factors are, if they are close to each other,
 
 
 
+
+
+
+
+
+
+
+
     \subheading{Instruction Sets}\label{subsubsec:CTFs-gb-instructions}
+
+
+
+
+
+
+
+
 
 
 
@@ -578,7 +1154,15 @@ Regardless of how large two primes factors are, if they are close to each other,
 
 
 
+
+
+
+
             {\parindent0pt\singlespacing
+
+
+
+
 
 
 
@@ -586,7 +1170,15 @@ Regardless of how large two primes factors are, if they are close to each other,
 
 
 
+
+
+
+
                 Do not worry if you get stuck at any point, or are unable to complete the entire challenge, simply try to get as fas as possible based on the instructions and information provided. %%
+
+
+
+
 
 
 
@@ -598,7 +1190,19 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
+
+
+
+
                 \section*{Instructions}
+
+
+
+
 
 
 
@@ -606,7 +1210,15 @@ This is not meant to be an assessment of your knowledge, and you will not be imp
 
 
 
+
+
+
+
 Inside this server there is a file titled \lstinline`FLAG.txt` which contains the flag to be submitted. %%
+
+
+
+
 
 
 
@@ -614,11 +1226,27 @@ It should look something like \lstinline`CTF_SDaT{ExampleFlag}`. %%
 
 
 
+
+
+
+
 The ftp server running is pyftp 0.8.4.5, which was actually available on Debian Release 5.0.4 from 2009-20010. %%
 
 
 
+
+
+
+
 A mirror of the source code is available at this \href{https://github.com/brendonky18/pyftpd-0.8.4.5_mirror}{github repository}.
+
+
+
+
+
+
+
+
 
 
 
@@ -634,7 +1262,23 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
+
+
+
+
                     Your task is to reverse engineer this program in order to discover a vulnerability which will allow you to capture the flag.
+
+
+
+
+
+
+
+
 
 
 
@@ -646,7 +1290,15 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
                 \section*{Additional Notes}
+
+
+
+
 
 
 
@@ -654,7 +1306,15 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
                     \begin{itemize}
+
+
+
+
 
 
 
@@ -662,11 +1322,23 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
                         \item If you were born from May to August, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/going-backwards/notes_1.md}{here}.
 
 
 
+
+
+
+
                         \item If you were born from September to December, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/going-backwards/notes_1.md}{here}
+
+
+
+
 
 
 
@@ -678,7 +1350,19 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
+
+
+
+
             }
+
+
+
+
 
 
 
@@ -686,7 +1370,15 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
         \subsubsection{Minimal Guidance Instructions}
+
+
+
+
 
 
 
@@ -694,7 +1386,15 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
                 \subsection*{\textit{Additional Notes}}
+
+
+
+
 
 
 
@@ -702,11 +1402,27 @@ A mirror of the source code is available at this \href{https://github.com/brendo
 
 
 
+
+
+
+
 You must trace through the program's execution in order to figure out how it works. %%
 
 
 
+
+
+
+
 It may be helpful to familiarize yourself with some basic FTP commands as well. 
+
+
+
+
+
+
+
+
 
 
 
@@ -722,6 +1438,14 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
 
 
@@ -730,7 +1454,23 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     \href{https://www.serv-u.com/resource/tutorial/pasv-response-epsv-port-pbsz-rein-ftp-command#fac52a38-7ddb-4815-a9dc-72cc03c0a8e6}{Here} is a link explaining how to establish a connection in FTP.
+
+
+
+
+
+
+
+
 
 
 
@@ -742,7 +1482,15 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
             }
+
+
+
+
 
 
 
@@ -750,7 +1498,15 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
         \subsubsection{Intermediate Guidance Instructions}
+
+
+
+
 
 
 
@@ -758,7 +1514,15 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
                 \subsection*{\textit{Additional Notes}}
+
+
+
+
 
 
 
@@ -766,11 +1530,27 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
 You must trace through the program's execution in order to figure out how it works. %%
 
 
 
+
+
+
+
 It may be helpful to familiarize yourself with some basic FTP commands as well. 
+
+
+
+
+
+
+
+
 
 
 
@@ -786,7 +1566,23 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
+
+
+
+
+
+
+
+
 
 
 
@@ -802,7 +1598,19 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. %%
+
+
+
+
 
 
 
@@ -810,11 +1618,27 @@ You should also look at the \lstinline`BasicSession` class. %%
 
 
 
+
+
+
+
 In this class, there is a function which defines what the server does to execute each FTP command. %%
 
 
 
+
+
+
+
 Think about what commands you would need to execute in the server in order to find and then get the \lstinline`FLAG.txt` file. 
+
+
+
+
+
+
+
+
 
 
 
@@ -826,7 +1650,15 @@ Think about what commands you would need to execute in the server in order to fi
 
 
 
+
+
+
+
 You will also need some way of establishing a secondary connection over which the file can be transmitted. %%
+
+
+
+
 
 
 
@@ -838,7 +1670,19 @@ Furthermore, to do all of this, you must be able to log in to the server as a us
 
 
 
+
+
+
+
+
+
+
+
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
+
+
+
+
 
 
 
@@ -846,7 +1690,15 @@ Furthermore, to do all of this, you must be able to log in to the server as a us
 
 
 
+
+
+
+
         \newpage
+
+
+
+
 
 
 
@@ -854,7 +1706,15 @@ Furthermore, to do all of this, you must be able to log in to the server as a us
 
 
 
+
+
+
+
             {\parindent0pt\singlespacing
+
+
+
+
 
 
 
@@ -862,7 +1722,15 @@ Furthermore, to do all of this, you must be able to log in to the server as a us
 
 
 
+
+
+
+
                     This challenge is about reverse engineering. %%
+
+
+
+
 
 
 
@@ -870,7 +1738,19 @@ You must trace through the program's execution in order to figure out how it wor
 
 
 
+
+
+
+
 It may be helpful to familiarize yourself with some basic FTP commands as well. 
+
+
+
+
+
+
+
+
 
 
 
@@ -886,7 +1766,23 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
+
+
+
+
+
+
+
+
 
 
 
@@ -902,7 +1798,19 @@ It may be helpful to familiarize yourself with some basic FTP commands as well.
 
 
 
+
+
+
+
+
+
+
+
                     You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. %%
+
+
+
+
 
 
 
@@ -910,7 +1818,15 @@ You should also look at the \lstinline`BasicSession` class. %%
 
 
 
+
+
+
+
 In this class, there is a function which defines what the server does to execute each FTP command. %%
+
+
+
+
 
 
 
@@ -922,11 +1838,27 @@ Think about what commands you would need to execute in the server in order to fi
 
 
 
+
+
+
+
+
+
+
+
                     At the very least you would need to list the files with the \lstinline`list` command, and then copy the file with the \lstinline`retr` command. %%
 
 
 
+
+
+
+
 However, in order to do these, you must be logged in, which requires the \lstinline`user` and \lstinline`pass` commands. %%
+
+
+
+
 
 
 
@@ -938,7 +1870,19 @@ Furthermore, in order to transmit the information from the \lstinline`list` and 
 
 
 
+
+
+
+
+
+
+
+
                     Finally, as you can see on like 618 in \lstinline`pyftpd`, the program imports various modules which modify how authentication and other functions are implemented. %%
+
+
+
+
 
 
 
@@ -946,7 +1890,15 @@ At the top of the file, we also see that it imports 3 other files: \lstinline`ut
 
 
 
+
+
+
+
 Looking inside \lstinline`utils.py` reveals that it's fairly uninteresting. %%
+
+
+
+
 
 
 
@@ -954,7 +1906,15 @@ The same is true for \lstinline`debug.py`. %%
 
 
 
+
+
+
+
 However, \lstinline`config.py` is fairly interesting. %%
+
+
+
+
 
 
 
@@ -966,7 +1926,19 @@ Among other things, it imports \lstinline`auth_anonymous_module`, and \lstinline
 
 
 
+
+
+
+
+
+
+
+
                     Both of these sounds like they have to do with authentication so let's look at them more closely. %%
+
+
+
+
 
 
 
@@ -974,7 +1946,15 @@ Each module also imports a corresponding config file. %%
 
 
 
+
+
+
+
 \lstinline`auth_anonymous_config.py` doesn't seem interesting, however \lstinline`auth_cd_config.py` certainly does. %%
+
+
+
+
 
 
 
@@ -986,7 +1966,19 @@ It contains a list called \lstinline`passwd`, and then some information.
 
 
 
+
+
+
+
+
+
+
+
                     Looking back in \lstinline`auth_db.py` we can see that the list \lstinline`passwd` is used in the functions \lstinline`got_user` and \lstinline`got_pass`. %%
+
+
+
+
 
 
 
@@ -994,7 +1986,15 @@ It iterates over the list, and then compares the first sub-element \lstinline`i`
 
 
 
+
+
+
+
 This is a likely indication that the first element in the list ("admin") is a username. %%
+
+
+
+
 
 
 
@@ -1002,7 +2002,15 @@ The \lstinline`got_pass` function looks very similar, iterating over the \lstinl
 
 
 
+
+
+
+
 It compares the first element of the sub-element to the \lstinline`username` parameter again, and then also compares the third element to the result of \lstinline`md5hash(password)`. %%
+
+
+
+
 
 
 
@@ -1010,7 +2018,15 @@ The comment at the top of the file also says \lstinline`autentificate from inter
 
 
 
+
+
+
+
 From this, we have gathered that \lstinline`auth_db_config.py` contains a list of user information, where the first item is the username and the third item is the md5 hash of the password. %%
+
+
+
+
 
 
 
@@ -1022,7 +2038,19 @@ The \lstinline`md5hash` function returns the result of \lstinline`string.strip(b
 
 
 
+
+
+
+
+
+
+
+
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
+
+
+
+
 
 
 
@@ -1030,5 +2058,11 @@ The \lstinline`md5hash` function returns the result of \lstinline`string.strip(b
 
 
 
+
+
+
+
             }
+
+
 
