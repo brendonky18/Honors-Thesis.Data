@@ -28,7 +28,7 @@
 {geometry}
 
 \usepackage{dirtytalk}              \usepackage{indentfirst}            \usepackage[indent=0.5in]{parskip}  \usepackage{setspace}               \doublespacing
-\usepackage{graphicx}               \usepackage{bookmark}               \usepackage{pdfpages}               
+\usepackage{graphicx}               \usepackage{bookmark}               \usepackage{pdfpages}               \usepackage{listings}               \usepackage{hyperref}               \usepackage{enumerate}              \usepackage{amsmath}                
 \pagenumbering{roman}
 \begin{document}
         \iffullsubmission        
@@ -44,28 +44,28 @@
             \input{body/abstract.tex}
     \fi
     
-    \chapter{Introduction}
+    \chapter{Introduction}\label{ch:introduction}
         \input{body/introduction.tex}
     \pagenumbering{arabic}
         
-    \chapter{Literature Review}
+    \chapter{Literature Review}\label{ch:lit-review}
         \input{../Literature-Review/Literature-Review-body.tex}
 
-    \chapter{Methods}
+    \chapter{Methods}\label{ch:methods}
         \input{body/methods.tex}
 
-    \chapter{Results}
+    \chapter{Results}\label{ch:results}
         \input{body/results.tex}
 
-    \chapter{Discussion}
+    \chapter{Discussion}\label{ch:discussion}
         \input{body/discussion.tex}
 
-    \chapter{Conclusions}
+    \chapter{Conclusions}\label{ch:conclusions}
         \input{body/conclusions.tex}
 
-    \chapter{Recommendations}
+    \chapter{Recommendations}\label{ch:recommendations}
         \input{body/recommendations.tex}
-
+    
     \chapter*{Acknowledgements}
     \addcontentsline{toc}{chapter}{Acknowledgements}  
         \input{body/acknowledgements.tex}
@@ -74,8 +74,15 @@
 
     \appendix
     \chapter{Students}\label{app:students}
+    \setcounter{page}{1}\renewcommand{\thepage}{\thechapter-\arabic{page}}
     \input{appendix/students.tex}
+    
 
     \chapter{Activities}\label{app:CTFs}
+    \setcounter{page}{1}
     \input{appendix/ctfs.tex}
+
+    \chapter{Data}\label{app:data}
+    \setcounter{page}{1}
+    \input{appendix/data.tex}
 \end{document}
