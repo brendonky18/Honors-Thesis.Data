@@ -26,9 +26,9 @@
     In order to evaluate both, two sets of three activities were designed. 
     To assess how different design approaches impacts the learning of content knowledge, a challenge was designed around a student's  knowledge of the RSA public-key crypto system. 
     This activity was called \emph{crypto cracking}. 
-    To complement this knowledge-based activity, a second activity involving reverse engineering was created, to evaluate how activities based on skills might differ from those based on knowledge. 
+    To complement this knowledge-based activity, a second skills-based activity involving reverse engineering was created, to evaluate how activities based on skills might differ from those based on knowledge. 
     This second activity was called \emph{going backwards}. 
-    More specific information about the \emph{crypto cracking} and \emph{going backwards} activities can be found in Appendices~\ref{subsec:CTFs-cc} and \ref{subsec:CTFs-gb} respectively.
+    More specific information about the \emph{crypto cracking} and \emph{going backwards} activities can be found in Appendices~\ref{subsec:CTFs-cc} and \ref{subsec:CTFs-gb}, respectively.
 
 \subheading{Crypto Cracking}
     RSA is a widely used cryptosystem that is essential to modern cryptography. 
@@ -36,7 +36,7 @@
     As such, the crypto cracking activity was designed to challenge a student's conceptual understanding --- 
     in other words, their content knowledge --- 
     of RSA. 
-    Besides this, the only knowledge required was some basic scripting abilities, and a basic understanding of computer networking and network traffic analysis. 
+    Besides this, the only knowledge required is some basic scripting abilities, and a basic understanding of computer networking and network traffic analysis. 
     The activity was given to the students in the class CS 561. 
     To met the prerequisites for enrollment in the class, students should have knowledge in the necessary areas. 
 
@@ -52,60 +52,66 @@
 
 \subheading{Going Backwards}
     Software reverse engineering is a technique that has broad applications to cybersecurity. 
-    The going backwards activity was designed to challenge a students skills in reverse engineering. 
+    The \emph{going backwards} activity is designed to challenge a students skills in reverse engineering. 
     In the context of cybersecurity reverse engineering is frequently accompanied by binary exploitation, which requires in depth knowledge of operating systems, assembly languages, and computer architecture. 
-    In order to ensure that the activity solely focused on the skill of reverse engineering, and not a student's knowledge of binary exploitation, they were asked to reverse engineer a program written in python. 
-    The only prerequisite knowledge is familiarity with the python programming language, and familiarity with the Linux command line utility netcat. 
-    Again, all participants should be familiar with these.
+    In order to ensure that the activity solely focuses on the skill of reverse engineering and not a student's knowledge of binary exploitation, they were asked to reverse engineer a program written in Python. 
+    The only prerequisite knowledge is familiarity with the Python programming language, and familiarity with the Linux command line utility netcat. 
+    Again, all participants should be familiar with these, given the course prerequisites.
 
-    The activity involves reverse engineering an FTP server, written in python. 
-    To complete the activity, they must find out that the server's default configuration includes pre-configured log in credentials for an account with elevated permissions. 
-    They must then reverse the encoding and hash on the default password, which will allow them to access this server as this user, and perform privileged operations. 
+    The activity involves reverse engineering an FTP server, written in Python. 
+    To complete the activity, students must discover out that the server's default configuration includes pre-configured log in credentials for an account with elevated permissions. 
+    They must then reverse the encoding and hash on the default password, which allows them to access this server as this user, and perform privileged operations. 
 
 \heading{Design of Instruction Sets}
-    Both of the activities were accompanied by a basic instruction set, which simply explains the activity, and provides information about the environment that they will be working in. 
-    These basic instructions were then supplemented by one of three additional instruction sets, which provided more specific guidance about how the student should try to approach and solve the challenge they were provided. 
-    Each of the supplemental instructions corresponded to one of the identified pedagogies: minimal, intermediate, and maximal guidance. 
+    Both of the activities are accompanied by a basic instruction set, which simply explains the activity, and provides information about the environment that they will be working in. 
+    These basic instructions are also supplemented by one of three additional instruction sets, which provide more specific guidance about how the student should try to approach and solve the challenge they were provided. 
+    Each of the supplemental instructions correspond to one of the identified pedagogies: minimal, intermediate, and maximal guidance. 
     The ultimate goal is to evaluate how the different designs of each instruction set impacts each student's outcomes.
-    The combination of the two activities with their respective instructions, and the supplemental instructions corresponding to the three different design philosophies, yielded a total of six distinct capture the flag challenges, or CTFs. 
+    The combination of the two activities with their respective instructions, combined with supplemental instructions for each of the three different design philosophies, yields a total of six distinct capture the flag challenges, or CTFs. 
     All of these instructions can be found in Appendices~\ref{subsubsec:CTFs-cc-instructions} and \ref{subsubsec:CTFs-gb-instructions}.
 
     \subheading{Minimal Guidance}
-        Research done by \textcite{J-Sweller,R-Weiss} identify a school of thought which believes that learning is best accomplished when students are presented with a challenge or activity, and are provided a minimal, or ideally no guidance from an instructor. 
+        Research conducted by \textcite{J-Sweller,R-Weiss} identify a school of thought which believes that learning is best accomplished when students are presented with a challenge or activity and are provided a minimal, or ideally no guidance from an instructor. 
         Such an approach is rooted in the belief that students learn best when motivated by their own independent inquiry; 
         any guidance provided by an instructor only hampers learning by short-circuiting the process through which knowledge and understanding is formed. 
 
-        To this end, the minimally guidance instructions only direct students towards various websites that contain relevant information, all of which could have just as easily been found through an online search. 
+        To this end, the minimal guidance instructions only direct students towards various websites that contain relevant information, all of which can be found through an online search. 
 
     \subheading{Intermediate Guidance}
         The paper by \textcite{R-Weiss} hypothesizes that an intermediate approach may be warranted. 
         While they acknowledge the body of evidence which seems to demonstrate the inefficacy of a minimal guidance approach, they also proffer that cybersecurity education should be differentiated. 
         The research cited by \citeauthor{J-Sweller} focuses on student's retention of knowledge and information. 
-        They argue that in cybersecurity, it is also essential for students to learn skills. While minimal guidance may not be an effective way to impart knowledge, they theorize that it may work for developing skills. 
+        Whereas \citeauthor{R-Weiss} argue that in cybersecurity, it is also essential for students to learn skills. 
+        While minimal guidance may not be an effective way to impart content knowledge, they theorize that it may work for developing skills, as was demonstrated by \textcite{C-Kussmaul}.
         To address both the informational and skills aspect of cybersecurity, they hypothesize that an intermediate approach should be most effective. 
 
         The design of the intermediate guidance instruction reflects this philosophy. 
         The students are not provided explicitly with the solutions to each activity, however they are provided some indication of what they should be looking for to guide them down the correct path.
 
+        In the case of the \emph{crypto cracking} activity, students were also provided with my (the instructor's) email address. 
+        They were told to contact the provided email with any questions. 
+        This was done to enable specific and tailored feedback to each student's difficulty, consistent with the suggestion made by \citeauthor{R-Weiss}.
+
     \subheading{Maximal Guidance}
         Maximal guidance is the final approach examined in this experiment. 
-        This approach calls for extremely explicit guidance to be given to students. 
+        In accordance with the maximalist design philosophy, this approach calls for extremely explicit guidance to be given to students. 
         Asking a student to complete a task without any direction simply overloads their mental capacity. 
         Offering guidance gives the instructor far greater control over the experience, and ensures that new information is introduced at a manageable rate. 
 
         The instruction sets designed under this approach are by far the most extensive. 
-        They explain to the students the exact steps they must complete in order to complete the challenge, and motivate why these steps make sense or are necessary. 
+        They explain to the students the exact steps they must take in order to complete the challenge, and explain why these steps make sense or are necessary. 
 
 \heading{Design of Experiment}
-    The six challenges were offered to the students taking the course CS 561 System Defense and Test. 
-    As an incentive, a small amount of extra credit was offered to any student for simply attempting the challenges and completing a survey after each. 
-    Each participant was asked to work on the two activities, and they were given approximately one week to work on each challenge. 
-    The challenges were accessed through an instance of the CTFd platform, which was hosted on the UMass network, and used as part of the class. 
-    Students were then asked to use one of three instruction sets, which were assigned based on the student's birth month. 
+    The activities were offered to the students taking the course CS 561 System Defense and Test, at the University of Massachusetts Amherst. 
+    As an incentive, a small amount of extra credit was offered to any student for attempting both of the activities and completing a survey after each attempt. 
+    Students were then asked to use one of three instruction sets, which were assigned based on the student's birth month, where each instruction set corresponds to one of the six challenges. 
     This was done for two reasons. 
     First, this was a simple way ensure a sufficiently random distribution of the instructions. 
-    Second, by assigning each design approach to a specific set of months, it ensured that each student would receive the equivalent set instructions for both activities. 
-
+    Second, by assigning each design approach to a specific set of months, it ensured that each student would receive a corresponding set of instructions for both activities.     
+    Each participant was asked to work on the two assigned challenges, and was given approximately one week to work on each challenge. 
+    The challenges were accessed through an instance of the CTFd platform, which was hosted on the UMass network, and used as part of the class. 
+    CTFd, is a software package which easily allows someone to host and run CTFs on their computer.
+    
 \heading{Design of Student Surveys}
     After attempting each challenge, the students were asked to complete two surveys. 
     The survey was intended to gather information in four primary areas:
@@ -113,7 +119,7 @@
         \item The student's prior experience with hands-on activities.
         \item The student's prior knowledge on the topic covered in the challenge.
         \item How much the student learned by working on the challenge.
-        \item How the design of the instruction impacted their learning. 
+        \item How the design of the instructions impacted their learning. 
     \end{enumerate}
     
     The surveys directly asked students to evaluate themselves and their experience, instead of attempting to indirectly assess their knowledge through some kind of test. 
