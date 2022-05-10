@@ -17,59 +17,61 @@ NL_REPLACE = "%%\n"
 def smudge():
     workingLine = ""
     for line in sys.stdin:
-        # Smudge remote when pulling to local
-        if NL_REPLACE in line:
-            # print(f"a: {line.replace(NL_REPLACE, '')}")
-            workingLine += line.replace(NL_REPLACE, "")
-            # print(f'a: {workingLine}')
-        else:
-            print(f"{workingLine}{line}", end="")
-            workingLine = ""
+        print(line)
+        # # Smudge remote when pulling to local
+        # if NL_REPLACE in line:
+        #     # print(f"a: {line.replace(NL_REPLACE, '')}")
+        #     workingLine += line.replace(NL_REPLACE, "")
+        #     # print(f'a: {workingLine}')
+        # else:
+        #     print(f"{workingLine}{line}", end="")
+        #     workingLine = ""
         
-        # print if it didn't on the last run
-        # if workingLine != "":
-        # print(f"{workingLine}")
+        # # print if it didn't on the last run
+        # # if workingLine != "":
+        # # print(f"{workingLine}")
 
 # clean local before commit to remote
 def clean():
     readingFromDocBody = False
     # readingFromDocBody = True
     for line in sys.stdin:
-        # only parse within the document body
-        punctuationRegex = "((?:(?<!et|al|[A-Z])[\.]|(?:[\?|\!|;])) |---)(?!\n)"
+        print(line)
+        # # only parse within the document body
+        # punctuationRegex = "((?:(?<!et|al|[A-Z])[\.]|(?:[\?|\!|;])) |---)(?!\n)"
         
-        # captures punctuation marks, but ignores those in comments
-        commentRegex = f"(?(?=%)(?:.*)\n|{punctuationRegex})"
+        # # captures punctuation marks, but ignores those in comments
+        # commentRegex = f"(?(?=%)(?:.*)\n|{punctuationRegex})"
 
-        # if "\\begin{document}" in line:
-        #     readingFromDocBody = True
-        # elif "\\end{document}" in line:
-        #     readingFromDocBody = False        
+        # # if "\\begin{document}" in line:
+        # #     readingFromDocBody = True
+        # # elif "\\end{document}" in line:
+        # #     readingFromDocBody = False        
 
-        # if readingFromDocBody:
-        splitList = regex.split(commentRegex, line)
-        # print(splitList)
-        resultListItr = iter(splitList)
+        # # if readingFromDocBody:
+        # splitList = regex.split(commentRegex, line)
+        # # print(splitList)
+        # resultListItr = iter(splitList)
 
-        curItem = next(resultListItr, None)
-        nextItem = next(resultListItr, None)
-        while nextItem is not None:
-            # next item is punctuation, so combine them
-            # print(f"cur item:{curItem}")
-            # print(f"next item:{nextItem}")
-            # print(f"regex match: {regex.match(punctuationRegex, nextItem)}")
-            if curItem.endswith('\n'):
-                print(f"{curItem}")
-            elif regex.match(punctuationRegex, nextItem) is not None:
-                print(f"{curItem + nextItem}", end=NL_REPLACE)
-                nextItem = next(resultListItr, None)
-            else:
-                print(f"{curItem}")
+        # curItem = next(resultListItr, None)
+        # nextItem = next(resultListItr, None)
+        # while nextItem is not None:
+        #     # next item is punctuation, so combine them
+        #     # print(f"cur item:{curItem}")
+        #     # print(f"next item:{nextItem}")
+        #     # print(f"regex match: {regex.match(punctuationRegex, nextItem)}")
+        #     if curItem.endswith('\n'):
+        #         print(f"{curItem}")
+        #     elif regex.match(punctuationRegex, nextItem) is not None:
+        #         print(f"{curItem + nextItem}", end=NL_REPLACE)
+        #         nextItem = next(resultListItr, None)
+        #     else:
+        #         print(f"{curItem}")
             
-            curItem, nextItem = nextItem, next(resultListItr, None)
-        print(f"{curItem}", end="")
-        # else:
-        #     print(f"{line}", end="")
+        #     curItem, nextItem = nextItem, next(resultListItr, None)
+        # print(f"{curItem}", end="")
+        # # else:
+        # #     print(f"{line}", end="")
 
 
 if __name__ == '__main__':
