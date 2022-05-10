@@ -1,15 +1,23 @@
+% REQUIREMENTS:
 
+% Contextual information: e.g., literature review or a discussion of theoretical or artistic influences. DONE (Literature Review)
 
+% Process information: e.g., What did you wish to achieve? How did you set out to achieve the goals? (Methods section)
 
+% Reflections: e.g., What did you learn or contribute? What changes would you make in hindsight? Implications or suggestions for the future? (Discussion Section)
 
 \documentclass{report}
 
 \newcommand*{\bibpath}{../common/bib}
+% hides the literature review abstract
 \newif\ifshowabstract
 \showabstractfalse
+% hides the literature review conclusions
 \newif\ifshowconclusion
 \showconclusionfalse
 
+% set to false to generate the plain submssion to PATHS w/o the title or abstract, 
+% PATHS generates this automatically
 \newif\iffullsubmission
 \fullsubmissiontrue
 
@@ -27,11 +35,23 @@
 ]
 {geometry}
 
-\usepackage{dirtytalk}              \usepackage{indentfirst}            \usepackage[indent=0.5in]{parskip}  \usepackage{setspace}               \doublespacing
-\usepackage{graphicx}               \usepackage{bookmark}               \usepackage{pdfpages}               \usepackage{listings}               \usepackage{hyperref}               \usepackage{enumerate}              \usepackage{amsmath}                
+\usepackage{dirtytalk}              %  Inserting quotes
+\usepackage{indentfirst}            %  Indents first paragraph
+\usepackage[indent=0.5in]{parskip}  %  Sets the indent size
+\usepackage{setspace}               %  Control line spacing
+\doublespacing
+\usepackage{graphicx}               %  Inserting images
+\usepackage{bookmark}               %  Adds ToC Bookmarks to pdf viewer
+\usepackage{pdfpages}               %  Include other PDFs in doc
+\usepackage{listings}               %  Code listings
+\usepackage{hyperref}               %  Include links
+\usepackage{enumerate}              %  Control numbered list style
+\usepackage{amsmath}                %  Text in equations
+
 \pagenumbering{roman}
 \begin{document}
-        \iffullsubmission        
+    % Don't include these sections when submitting to CHC PATHS
+    \iffullsubmission        
         \begin{singlespace}
             \input{title.tex}
             

@@ -1,2068 +1,220 @@
 \providecommand{\heading}[1]{\section{#1}}
-
-
-
-
-
-
-
 \providecommand{\subheading}[1]{\subsection{#1}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \heading{Crypto Cracking}\label{subsec:CTFs-cc}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     \subheading{Design}
+        \subsubsection*{Going Backwards}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    % put in appendix
+    % In this challenge, there are three virtual computers communicating over a network. Three of the computers act as clients, communicating with a central server. Each client communicates only with the server over a custom protocol that was designed to be a simplified imitation of how TLS uses RSA. The students are able to view the network traffic between the client and host using Wireshark. 
     \subheading{Instruction Sets}\label{subsubsec:CTFs-cc-instructions}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         \subsubsection{Basic Instructions}
-
-
-
-
-
-
-
             \noindent
-
-
-
-
-
-
-
             Below are the basic instructions provided to all students for the crypto cracking activity.
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing                
-
-
-
-
-
-
-
                     You are going to be assigned a specific set of instructions, please do not refer to any of the other instruction sets.
-
-
-
-
-
-
-
-                    Do not worry if you get stuck at any point, or are unable to complete the entire challenge, simply try to get as fas as possible based on the instructions and information provided. %%
-
-
-
-
-
-
-
-This is not meant to be an assessment of your knowledge, and you will not be impacted in any way regardless of how much you are able to complete. 
-
-
-
-
-
-
-
+                    Do not worry if you get stuck at any point, or are unable to complete the entire challenge, simply try to get as fas as possible based on the instructions and information provided. This is not meant to be an assessment of your knowledge, and you will not be impacted in any way regardless of how much you are able to complete. 
                 
-
-
-
-
-
-
-
                 \section*{Instructions}
-
-
-
-
-
-
-
                     The aim of this challenge is for you to learn about the practical implementation of RSA.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     To our modern understanding, RSA is theoretically sound, however, there are several ways which if implemented incorrectly, can result in it being incredibly trivial to break. 
-
-
-
-
-
-
-
                     Your goal is to explore those methods in order to gain a better working understanding of how RSA works, and what makes it so powerful. 
-
-
-
-
-
-
-
                 \subsubsection*{Challenge Description}
-
-
-
-
-
-
-
                     On this network there are 4 computers in total. 
-
-
-
-
-
-
-
                     There is 1 server, and 3 users (numbered 0, 1, and 2) which are communicating to this server using an encrypted protocol. 
-
-
-
-
-
-
-
-                    Each client is running TCP dump, and sending it to port 22. %%
-
-
-
-
-
-
-
-You can connect to this port with ssh, and send the output to wireshark.
-
-
-
-
-
-
-
+                    Each client is running TCP dump, and sending it to port 22. You can connect to this port with ssh, and send the output to wireshark.
                     The shell script \lstinline`remote_pcap.sh`' has been provided to do this for you automatically. 
-
-
-
-
-
-
-
                     It accepts two arguments, the user number that you are connecting to, and your student username which you use to \lstinline`ssh` into the swarm network with.
-
-
-
-
-
-
-
                     If you restart the script and get an error message saying "Data written to the pipe is neither in a supported in a supported pcap format nor in pcapng format."
-
-
-
-
-
-
-
                     close wireshark, exit the ssh session by hitting Ctrl+C, and wait about 20-30 seconds before running the script again.
-
-
-
-
-
-
-
                     This happens because it takes a couple of seconds to restart the packet capture, and wireshark is trying to connect before it's ready.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     So for example, if I wanted to connect to user \lstinline`0`, and my student account name is \lstinline`bky`, I run \lstinline`./remote_pcap.sh 0 bky`. 
-
-
-
-
-
-
-
                     Of course, you must have wireshark installed on your local computer, which you can get by running \lstinline`sudo apt-get install wireshark` on Ubuntu or other Debian-based distros.
-
-
-
-
-
-
-
                     If you are using Kali Linux, it should already be installed.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    You should start with user 0, the password for user 0 is \lstinline`start_here`. %%
-
-
-
-
-
-
-
-Each user is transmitting the password for the subsequent user over the encrypted protocol, i.e. %%
-
-
-
-
-
-
-
-user 0 is sending user 1's password, and user 1 is sending user 2's. %%
-
-
-
-
-
-
-
-User 2 is transmitting the final flag which you will submit. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    You should start with user 0, the password for user 0 is \lstinline`start_here`. Each user is transmitting the password for the subsequent user over the encrypted protocol, i.e. user 0 is sending user 1's password, and user 1 is sending user 2's. User 2 is transmitting the final flag which you will submit. 
 
                 \subsubsection*{Protocol Description}
-
-
-
-
-
-
-
                     The clients communicate with a custom protocol that is intended to mirror how encryption is used in networking. 
-
-
-
-
-
-
-
                     \begin{enumerate}
-
-
-
-
-
-
-
                         \item The client requests the server's public RSA key.
-
-
-
-
-
-
-
                         \item The server acknowledges by sending it's public key.
-
-
-
-
-
-
-
                         \item The client sends a symmetric key, and a message (the flag/password).
-
-
-
-
-
-
-
                         \begin{enumerate}[1.]
-
-
-
-
-
-
-
                             \item The client first picks a number to be the symmetric key.
-
-
-
-
-
-
-
                             \item The number is then encrypted with the server's public key.
-
-
-
-
-
-
-
                             \item The number is also used to encrypt the message, by xoring the message and key together.
-
-
-
-
-
-
-
                             \begin{itemize}
-
-
-
-
-
-
-
                                 \item If the symmetric key is not long enough to encrypt the entire message, then it will be applied as a block cipher.
-
-
-
-
-
-
-
                                 \item Meaning that if the key is \textit{n} bits long, it will xor the message in blocks of \textit{n} bits at a time, until it has encrypted the entire message.
-
-
-
-
-
-
-
                                 \item For example, if the symmetric key was 0b11110000, and our message was 8 bytes long, message would be xored by 0b11110000 11110000 11110000 11110000 11110000 11110000 11110000 11110000
-
-
-
-
-
-
-
                             \end{itemize}
-
-
-
-
-
-
-
                             \item Finally, the encrypted symmetric key and encrypted message are then both sent to the server.
-
-
-
-
-
-
-
                         \end{enumerate}
-
-
-
-
-
-
-
                         \item All bytes are in network byte order, meaning that everything is in big endian.
-
-
-
-
-
-
-
                     \end{enumerate}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 \section*{Additional Notes}
-
-
-
-
-
-
-
                     TIP
-
-
-
-
-
-
-
                     \begin{itemize}
-
-
-
-
-
-
-
                         \item If you were born from January to April, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/crypto-cracking/notes_0.md}{here}.
-
-
-
-
-
-
-
                         \item If you were born from May to August, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/crypto-cracking/notes_1.md}{here}.
-
-
-
-
-
-
-
                         \item If you were born from September to December, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/crypto-cracking/notes_1.md}{here}
-
-
-
-
-
-
-
                     \end{itemize}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Minimal Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \section*{Instruction Set 0}
-
-
-
-
-
-
-
                     \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
                         If you are unsure where to start, I would recommend reviewing the simplified \href{https://simple.wikipedia.org/wiki/RSA_algorithm}{wikipedia page} on RSA, which contains a good walk-through example of encrypting and decrypting a message with RSA.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Intermediate Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \section*{Instruction Set 1}
-
-
-
-
-
-
-
                     \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
                         If you are unsure where to start, I would recommend reviewing the simplified \href{https://simple.wikipedia.org/wiki/RSA_algorithm}{wikipedia page} on RSA, which contains a good walk-through example of encrypting and decrypting a message with RSA.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         \subsubsection*{Cracking User 0}
-
-
-
-
-
-
-
                             The vulnerability in public key used by user 0, is that the modulus \lstinline`n` is a very small number (at least as far as RSA keys are concerned).
-
-
-
-
-
-
-
                         \subsubsection*{Cracking User 1}
-
-
-
-
-
-
-
                             The vulnerability in the public key used by user 1, is that the public exponent is incredibly small, and the message is not padded at all. 
-
-
-
-
-
-
-
                         \subsubsection*{Cracking User 2}
-
-
-
-
-
-
-
                             The vulnerability if the public key used by user 2, is that the two prime numbers are incredibly close to each other. 
-
-
-
-
-
-
-
                     \subsection*{\textit{Still Stuck}}
-
-
-
-
-
-
-
                         If you have any other questions, you can reach out to me at bky@umass.edu. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Maximal Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \section*{Instruction Set 2}
-
-
-
-
-
-
-
                     \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
                         If you are unsure where to start, I would recommend reviewing the simplified \href{https://simple.wikipedia.org/wiki/RSA_algorithm}{wikipedia page} on RSA, which contains a good walk-through example of encrypting and decrypting a message with RSA.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         \subsubsection*{Cracking User 0}
-
-
-
-
-
-
-
                             To view the messages being transmitted, connect to user 0 with the \lstinline`remote_pcap.sh` script. 
-
-
-
-
-
-
-
                             This should launch wireshark and reveal quite a lot of traffic, we only care about a small portion of this.
-
-
-
-
-
-
-
                             In the display filter text box on top, enter the filter \lstinline`tcp.flags.push==1`. 
-
-
-
-
-
-
-
                             This will show us only the messages we're interested in.
-
-
-
-
-
-
-
                             The client will contact the server a couple of times a minute.
-
-
-
-
-
-
-
                             To start we need to get the public key. 
-
-
-
-
-
-
-
                             Look for a message coming from the server that says \lstinline`RSA_KEY_ACK`. 
-
-
-
-
-
-
-
                             This message will contain two other fields: \lstinline`E` and \lstinline`N`, which correspond to the public exponent and modulus respectively.
-
-
-
-
-
-
-
                             Together, these two numbers make the public key.
-
-
-
-
-
-
-
                             The vulnerability in public key used by user 0, is that the modulus \lstinline`N` is a very small number (at least as far as RSA keys are concerned). 
-
-
-
-
-
-
-
                             Even a naive brute-force approach to finding the prime factors should only take ~10 minutes (as tested on my own computer). 
-
-
-
-
-
-
-
                             Depending on how powerful your computer is, your speed will vary. 
-
-
-
-
-
-
-
                             A number of simple optimizations will also make this time significantly lower. 
-
-
-
-
-
-
-
                             Once you've calculated the two factors \lstinline`p` and \lstinline`q`, you can easily use them to calculate the private key \lstinline`d`. 
-
-
-
-
-
-
-
                             \lstinline`d` is the \href{https://en.wikipedia.org/wiki/Modular_multiplicative_inverse}{modular multiplicative inverse} of $e (\mod{\varphi(n)})$. 
-
-
-
-
-
-
-
-                            $\varphi(n)$ is \href{https://en.wikipedia.org/wiki/Euler                            Since we now know all of these values, it is trivial to calculate the secret key \lstinline`d`.
-
-
-
-
-
-
-
+                            $\varphi(n)$ is \href{https://en.wikipedia.org/wiki/Euler%27s_totient_function}{Euler's totient function}, and is equal to the LCM of \lstinline`p-1` and \lstinline`q-1`, given that \lstinline`n=pq`.
+                            Since we now know all of these values, it is trivial to calculate the secret key \lstinline`d`.
                             In python, it can be calculated simply as \lstinline`d=pow(e, -1, (p-1)*(q-1))`.
-
-
-
-
-
-
-
                             This use of the \lstinline`pow` function requires at least python 3.8.
-
-
-
-
-
-
-
                             You can then use this private key to decrypt the symmetric key. 
-
-
-
-
-
-
-
                             The encrypted symmetric key is sent in a \lstinline`SECRET_FLAG` message, in the field \lstinline`XOR_KEY`, and the encrypted flag is in the field \lstinline`ENC_FLAG`
-
-
-
-
-
-
-
                             Once you have the symmetric key, you xor it with the encrypted flag to reveal the flag. 
-
-
-
-
-
-
-
                             You then use this to get the password for the next user.
-
-
-
-
-
-
-
                         \subsubsection*{Cracking User 1}
-
-
-
-
-
-
-
-                            The vulnerability in the public key used by user 1, is that the public exponent is incredibly small, and the message is not padded at all. %%
-
-
-
-
-
-
-
-This means that the the message raised by the public exponent is still less than the modulus \lstinline`n` used. %%
-
-
-
-
-
-
-
-Because the encoded message (the symmetric key) \lstinline`c` is calculated by taking the plain message to the power of \lstinline`e`, you can reverse this process to get the symmetric key. %%
-
-
-
-
-
-
-
-Simply calculate the original message by taking the \lstinline`e`th root of \lstinline`c`, \lstinline`c^(1/e)`.
-
-
-
-
-
-
-
+                            The vulnerability in the public key used by user 1, is that the public exponent is incredibly small, and the message is not padded at all. This means that the the message raised by the public exponent is still less than the modulus \lstinline`n` used. Because the encoded message (the symmetric key) \lstinline`c` is calculated by taking the plain message to the power of \lstinline`e`, you can reverse this process to get the symmetric key. Simply calculate the original message by taking the \lstinline`e`th root of \lstinline`c`, \lstinline`c^(1/e)`.
                         \subsubsection*{Cracking User 2}
-
-
-
-
-
-
-
-                            The vulnerability in the public key used by user 2, is that the two prime numbers are incredibly close to each other. %%
-
-
-
-
-
-
-
-Regardless of how large two primes factors are, if they are close to each other, then they can efficiently be solved for using \href{https://en.wikipedia.org/wiki/Fermat
-
-
-
-
-
-
+                            The vulnerability in the public key used by user 2, is that the two prime numbers are incredibly close to each other. Regardless of how large two primes factors are, if they are close to each other, then they can efficiently be solved for using \href{https://en.wikipedia.org/wiki/Fermat%27s_factorization_method}{Fermat's factorization}. Using this approach will easily reveal the two factors. Once you have these, you can use the same approach from the first stage to reveal the symmetric key, and then the final flag.
 
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
 \newpage
-
-
-
-
-
-
-
 \heading{Going Backwards}\label{subsec:CTFs-gb}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     \subheading{Design}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    % TODO: add explanation
 
     \subheading{Instruction Sets}\label{subsubsec:CTFs-gb-instructions}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         \subsubsection{Basic Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 You are going to be assigned a specific set of instructions, please do not refer to any of the other instruction sets.
-
-
-
-
-
-
-
-                Do not worry if you get stuck at any point, or are unable to complete the entire challenge, simply try to get as fas as possible based on the instructions and information provided. %%
-
-
-
-
-
-
-
-This is not meant to be an assessment of your knowledge, and you will not be impacted in any way regardless of how much you are able to complete. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                Do not worry if you get stuck at any point, or are unable to complete the entire challenge, simply try to get as fas as possible based on the instructions and information provided. This is not meant to be an assessment of your knowledge, and you will not be impacted in any way regardless of how much you are able to complete. 
 
                 \section*{Instructions}
-
-
-
-
-
-
-
-                    There is an FTP server exposed on port 2121. %%
-
-
-
-
-
-
-
-Inside this server there is a file titled \lstinline`FLAG.txt` which contains the flag to be submitted. %%
-
-
-
-
-
-
-
-It should look something like \lstinline`CTF_SDaT{ExampleFlag}`. %%
-
-
-
-
-
-
-
-The ftp server running is pyftp 0.8.4.5, which was actually available on Debian Release 5.0.4 from 2009-20010. %%
-
-
-
-
-
-
-
-A mirror of the source code is available at this \href{https://github.com/brendonky18/pyftpd-0.8.4.5_mirror}{github repository}.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    There is an FTP server exposed on port 2121. Inside this server there is a file titled \lstinline`FLAG.txt` which contains the flag to be submitted. It should look something like \lstinline`CTF_SDaT{ExampleFlag}`. The ftp server running is pyftp 0.8.4.5, which was actually available on Debian Release 5.0.4 from 2009-20010. A mirror of the source code is available at this \href{https://github.com/brendonky18/pyftpd-0.8.4.5_mirror}{github repository}.
 
                     If you are not familiar with FTP, it stands for \textit{File Transferer Protocol}, and was designed to allow users to remotely access files stored on a server. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     Your task is to reverse engineer this program in order to discover a vulnerability which will allow you to capture the flag.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     Reverse Engineering is the process of dismantling and examining a programs source code — sometimes even the assembly or raw binaries, which won't be necessary for this module — in order to understand what it does, how it works, and for our purposes, how it can be exploited.
-
-
-
-
-
-
-
                 \section*{Additional Notes}
-
-
-
-
-
-
-
                     TIP
-
-
-
-
-
-
-
                     \begin{itemize}
-
-
-
-
-
-
-
                         \item If you were born from January to April, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/going-backwards/notes_0.md}{here}.
-
-
-
-
-
-
-
                         \item If you were born from May to August, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/going-backwards/notes_1.md}{here}.
-
-
-
-
-
-
-
                         \item If you were born from September to December, please refer to the notes \href{https://github.com/brendonky18/Honors-Thesis.CTFs/blob/main/going-backwards/notes_1.md}{here}
-
-
-
-
-
-
-
                     \end{itemize}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Minimal Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
-                    This challenge is about reverse engineering. %%
-
-
-
-
-
-
-
-You must trace through the program's execution in order to figure out how it works. %%
-
-
-
-
-
-
-
-It may be helpful to familiarize yourself with some basic FTP commands as well. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    This challenge is about reverse engineering. You must trace through the program's execution in order to figure out how it works. It may be helpful to familiarize yourself with some basic FTP commands as well. 
 
                     \href{https://kb.iu.edu/d/aenq}{Here} is a list of basic commands.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     \href{https://www.serv-u.com/resource/tutorial/pasv-response-epsv-port-pbsz-rein-ftp-command#fac52a38-7ddb-4815-a9dc-72cc03c0a8e6}{Here} is a link explaining how to establish a connection in FTP.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Intermediate Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
-                    This challenge is about reverse engineering. %%
-
-
-
-
-
-
-
-You must trace through the program's execution in order to figure out how it works. %%
-
-
-
-
-
-
-
-It may be helpful to familiarize yourself with some basic FTP commands as well. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    This challenge is about reverse engineering. You must trace through the program's execution in order to figure out how it works. It may be helpful to familiarize yourself with some basic FTP commands as well. 
 
                     \href{https://kb.iu.edu/d/aenq}{Here} is a list of basic commands.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     \href{https://www.serv-u.com/resource/tutorial/pasv-response-epsv-port-pbsz-rein-ftp-command#fac52a38-7ddb-4815-a9dc-72cc03c0a8e6}{Here} is a link explaining how to establish a connection in FTP.
 
+                    You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. You should also look at the \lstinline`BasicSession` class. In this class, there is a function which defines what the server does to execute each FTP command. Think about what commands you would need to execute in the server in order to find and then get the \lstinline`FLAG.txt` file. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. %%
-
-
-
-
-
-
-
-You should also look at the \lstinline`BasicSession` class. %%
-
-
-
-
-
-
-
-In this class, there is a function which defines what the server does to execute each FTP command. %%
-
-
-
-
-
-
-
-Think about what commands you would need to execute in the server in order to find and then get the \lstinline`FLAG.txt` file. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    You will need some way of navigating the file system, and listing the files available. %%
-
-
-
-
-
-
-
-You will also need some way of establishing a secondary connection over which the file can be transmitted. %%
-
-
-
-
-
-
-
-Furthermore, to do all of this, you must be able to log in to the server as a user. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    You will need some way of navigating the file system, and listing the files available. You will also need some way of establishing a secondary connection over which the file can be transmitted. Furthermore, to do all of this, you must be able to log in to the server as a user. 
 
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
         \newpage
-
-
-
-
-
-
-
         \subsubsection{Maximal Guidance Instructions}
-
-
-
-
-
-
-
             {\parindent0pt\singlespacing
-
-
-
-
-
-
-
                 \subsection*{\textit{Additional Notes}}
-
-
-
-
-
-
-
-                    This challenge is about reverse engineering. %%
-
-
-
-
-
-
-
-You must trace through the program's execution in order to figure out how it works. %%
-
-
-
-
-
-
-
-It may be helpful to familiarize yourself with some basic FTP commands as well. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    This challenge is about reverse engineering. You must trace through the program's execution in order to figure out how it works. It may be helpful to familiarize yourself with some basic FTP commands as well. 
 
                     \href{https://kb.iu.edu/d/aenq}{Here} is a list of basic commands.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     \href{https://en.wikipedia.org/wiki/List_of_FTP_commands}{Here} is a full list of FTP commands.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     \href{https://www.serv-u.com/resource/tutorial/pasv-response-epsv-port-pbsz-rein-ftp-command#fac52a38-7ddb-4815-a9dc-72cc03c0a8e6}{Here} is a link explaining how to establish a connection in FTP.
 
+                    You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. You should also look at the \lstinline`BasicSession` class. In this class, there is a function which defines what the server does to execute each FTP command. Think about what commands you would need to execute in the server in order to find and then get the \lstinline`FLAG.txt` file. 
 
+                    At the very least you would need to list the files with the \lstinline`list` command, and then copy the file with the \lstinline`retr` command. However, in order to do these, you must be logged in, which requires the \lstinline`user` and \lstinline`pass` commands. Furthermore, in order to transmit the information from the \lstinline`list` and \lstinline`retr` commands, you must establish a second connection, using either the \lstinline`port` or \lstinline`pasv` command. 
 
+                    Finally, as you can see on like 618 in \lstinline`pyftpd`, the program imports various modules which modify how authentication and other functions are implemented. At the top of the file, we also see that it imports 3 other files: \lstinline`utils.py`, \lstinline`config.py` and \lstinline`debug.py`. Looking inside \lstinline`utils.py` reveals that it's fairly uninteresting. The same is true for \lstinline`debug.py`. However, \lstinline`config.py` is fairly interesting. Among other things, it imports \lstinline`auth_anonymous_module`, and \lstinline`auth_db_module`. 
 
+                    Both of these sounds like they have to do with authentication so let's look at them more closely. Each module also imports a corresponding config file. \lstinline`auth_anonymous_config.py` doesn't seem interesting, however \lstinline`auth_cd_config.py` certainly does. It contains a list called \lstinline`passwd`, and then some information. 
 
-
-
-
-
-
-
-
-
-
-
-                    You should start by looking in the file \lstinline`pyftpd.py`, and tracing the execution path. %%
-
-
-
-
-
-
-
-You should also look at the \lstinline`BasicSession` class. %%
-
-
-
-
-
-
-
-In this class, there is a function which defines what the server does to execute each FTP command. %%
-
-
-
-
-
-
-
-Think about what commands you would need to execute in the server in order to find and then get the \lstinline`FLAG.txt` file. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    At the very least you would need to list the files with the \lstinline`list` command, and then copy the file with the \lstinline`retr` command. %%
-
-
-
-
-
-
-
-However, in order to do these, you must be logged in, which requires the \lstinline`user` and \lstinline`pass` commands. %%
-
-
-
-
-
-
-
-Furthermore, in order to transmit the information from the \lstinline`list` and \lstinline`retr` commands, you must establish a second connection, using either the \lstinline`port` or \lstinline`pasv` command. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    Finally, as you can see on like 618 in \lstinline`pyftpd`, the program imports various modules which modify how authentication and other functions are implemented. %%
-
-
-
-
-
-
-
-At the top of the file, we also see that it imports 3 other files: \lstinline`utils.py`, \lstinline`config.py` and \lstinline`debug.py`. %%
-
-
-
-
-
-
-
-Looking inside \lstinline`utils.py` reveals that it's fairly uninteresting. %%
-
-
-
-
-
-
-
-The same is true for \lstinline`debug.py`. %%
-
-
-
-
-
-
-
-However, \lstinline`config.py` is fairly interesting. %%
-
-
-
-
-
-
-
-Among other things, it imports \lstinline`auth_anonymous_module`, and \lstinline`auth_db_module`. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    Both of these sounds like they have to do with authentication so let's look at them more closely. %%
-
-
-
-
-
-
-
-Each module also imports a corresponding config file. %%
-
-
-
-
-
-
-
-\lstinline`auth_anonymous_config.py` doesn't seem interesting, however \lstinline`auth_cd_config.py` certainly does. %%
-
-
-
-
-
-
-
-It contains a list called \lstinline`passwd`, and then some information. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    Looking back in \lstinline`auth_db.py` we can see that the list \lstinline`passwd` is used in the functions \lstinline`got_user` and \lstinline`got_pass`. %%
-
-
-
-
-
-
-
-It iterates over the list, and then compares the first sub-element \lstinline`i` to the parameter \lstinline`username`. %%
-
-
-
-
-
-
-
-This is a likely indication that the first element in the list ("admin") is a username. %%
-
-
-
-
-
-
-
-The \lstinline`got_pass` function looks very similar, iterating over the \lstinline`passwd` list. %%
-
-
-
-
-
-
-
-It compares the first element of the sub-element to the \lstinline`username` parameter again, and then also compares the third element to the result of \lstinline`md5hash(password)`. %%
-
-
-
-
-
-
-
-The comment at the top of the file also says \lstinline`autentificate from internal database, passwords are md5-hashed`. %%
-
-
-
-
-
-
-
-From this, we have gathered that \lstinline`auth_db_config.py` contains a list of user information, where the first item is the username and the third item is the md5 hash of the password. %%
-
-
-
-
-
-
-
-The \lstinline`md5hash` function returns the result of \lstinline`string.strip(binascii.b2a_base64(m.digest()))`, looking it up shows that \lstinline`binascii.b2a_base64` converts binary data to base64 encoded ascii. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    Looking back in \lstinline`auth_db.py` we can see that the list \lstinline`passwd` is used in the functions \lstinline`got_user` and \lstinline`got_pass`. It iterates over the list, and then compares the first sub-element \lstinline`i` to the parameter \lstinline`username`. This is a likely indication that the first element in the list ("admin") is a username. The \lstinline`got_pass` function looks very similar, iterating over the \lstinline`passwd` list. It compares the first element of the sub-element to the \lstinline`username` parameter again, and then also compares the third element to the result of \lstinline`md5hash(password)`. The comment at the top of the file also says \lstinline`autentificate from internal database, passwords are md5-hashed`. From this, we have gathered that \lstinline`auth_db_config.py` contains a list of user information, where the first item is the username and the third item is the md5 hash of the password. The \lstinline`md5hash` function returns the result of \lstinline`string.strip(binascii.b2a_base64(m.digest()))`, looking it up shows that \lstinline`binascii.b2a_base64` converts binary data to base64 encoded ascii. 
 
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
-
-
-
-
-
-
-
             
-
-
-
-
-
-
-
             }
-
-
-

@@ -1,156 +1,164 @@
-In total, 12 students from the course participated in the study by working on both activities, and responding to the surveys afterwards, resulting in 24 surveys. %%
-Of these, only three had no previous experience with CTFs. %%
-Two students responded stating that they have never previously used hands on activities to learn something, however there were problems with this specific questions that will be addressed in the \nameref{ch:discussion} chapter. %%
-Unfortunately, this means that the results of this question are mostly meaningless. %%
-When asked to reflect on their experience using hands-on activities to learn cybersecurity topics, all respondents remarked positively on the use of activities in at least some conditions. %%
-In other terms, no respondents unequivocally or unconditionally felt that hands-on activities had no use in educating cybersecurity. %%
-Of the 12 participants, usage of the instructions was distributed exactly evenly; %%
-four used the minimal guidance instructions, four used the intermediate guidance instructions, and four used the maximal guidance instructions. 
+In total, 12 students from the course participated in the study by working on both activities, and responding to the surveys afterwards, resulting in 24 surveys. Of these, only three had no previous experience with CTFs. Two students responded stating that they have never previously used hands on activities to learn something, however there were problems with this specific questions that will be addressed in the \nameref{ch:discussion} chapter. Unfortunately, this means that the results of this question are mostly meaningless. When asked to reflect on their experience using hands-on activities to learn cybersecurity topics, all respondents remarked positively on the use of activities in at least some conditions. In other terms, no respondents unequivocally or unconditionally felt that hands-on activities had no use in educating cybersecurity. Of the 12 participants, usage of the instructions was distributed exactly evenly; four used the minimal guidance instructions, four used the intermediate guidance instructions, and four used the maximal guidance instructions. 
 
 The remaining results will be broken down based on the two different activities, and the two kinds of learning which they correspond to, as identified by \textcite{R-Weiss}. 
 
 The full data set is available in Appendix~\ref{app:data}.
 
+% \section{Content-Based Learning}
+%     As explained in the \nameref{ch:methods} chapter, the \emph{crypto cracking} activity was designed to focus on a student's content knowledge of the RSA public key cryptosystem. 
     
+%     \subsection*{Previous Experience}
+%         When asked about their previous experience learning and working with RSA, only 5 participants claimed to have any extensive theoretical or practical knowledge of RSA. Of these, 3 had implemented and otherwise worked with RSA encryption, the other 2 had a strong understanding of the math behind RSA. 
         
+%         Among the 8 remaining students, one had never learned about RSA previously, 3 had at least a basic theoretical understanding of RSA, 2 had previously learned and subsequently forgotten about RSA, and 1 student did not respond to the question. 
 
+%     \subsection*{Activity Difficulty}
+%         Students spent anywhere from 1 to 10 hours working on this activity. When asked whether they thought that same time could have been used to learn RSA more effectively, 5 students thought that their time would have been better spent learning with a different method, 6 thought that this was the most effective way to spent that time learning about RSA, and 1 student did not respond. 
 
+%         Students were also asked to rate the difficulty of the activity. They were told that a rating of 1 meant that the activity was trivial to solve, and a rating of 5 meant that the activity was impossible to solve. 6 students gave the activity a difficulty rating of 3, 5 gave it a rating of 4, and only 1 rated it 5. 
         
+%         Interestingly, of the 12 participants, only half were able to make any amount of progress; 3 were able to complete the first task, and the other 3 were able to complete the entire activity. 
         
+%     \subsection*{Learning Outcomes}
+%         When asked about how much the activities improved their theoretical understanding of RSA, 4 students said that it did not change at all, 4 said that their understanding improved slightly, and the remaining 4 said that it improved greatly. When asked about how the activity improved their understanding of RSA's use and implementation, only 1 said that it did not change; 6 said that it improved slightly, and 5 said that it improved greatly. 
 
+%     \subsection*{Activity Design}
+%         When asked about the design of the instructions, 7 students  wanted more explicit guidance, 3 said that the amount of guidance provided was sufficient, 1 said that more guidance would have helped in terms of learning knowledge, but hindered in learning skills, and 1 student said that more guidance would not have impacted their learning, either positively or negatively. Conversely, 10 students remarked negatively about the prospect of less guidance, 1 student was unsure about how it would impacted their learning, and the remaining student said that the provided instructions did not provide any guidance as they were, meaning that any reduction would not have made a discernable impact.
 
+%         Participants were then given the opportunity to freely discuss what they liked, disliked, and what they would change about the activity and instructions they were provided. 4 students said that they would make no changes, and 7 asked for more explicit guidance. The remaining student was able to find a work around, which bypassed the intended solution, and commented how this made the challenge fairly simple.
 
+%         Another recurring complaint involved technical issues with how the activity was implemented. In total, 7 students encountered issues where they were unable to access the challenge, or were confused by the custom protocol that was implemented. 
 
+% \section{Skills-Based Learning}
+%     The \emph{going backwards} activity focuses on a students skills in the area of software reverse engineering. 
 
+%     \subsection*{Previous Experience}
+%         4 participants had previous experience using reverse engineering, in order to understand the functionality of a program, library or other code base. 2 other students were familiar with the notion or concept of reverse engineering, 5 students had no familiarity with reverse engineering, and 1 student did not respond to the question.         
 
+%     \subsection*{Activity Difficulty}
+%         On this activity, students spent anywhere from 45 minutes up to 10 hours. Notably, 2 students did not state how much time they spent. They were again asked whether they thought they could have learned reverse engineering better in that time with a different approach. 6 believed that their time could have been better spent, 5 thought the activity was an effective use of their time, and 1 did not respond to the question. 
 
+%         6 students were able to at least locate the default password, and correctly recognize that they were an MD5 hash, however of these, only 1 was then able to reverse the encoding and hash, connect to the FTP server, and capture the flag. The other 6 students were not able to make any significant progress towards solving the activity. 
 
+%     \subsection*{Learning Outcomes}
+%         When asked about how the activity improved their understanding of reverse engineering, 4 said that their understanding did not improve, 4 said that it improved slightly, and 4 said that their understanding improved greatly. 
 
+%     \subsection*{Activity Design}
 
+% \section{Analysis}
 
 \section{Content-Based Learning}
     \subsection{Exceptional Cases}
-        There are two individual cases which are interesting as they are exceptions to the parameters of this experiment. %%
-These cases will be examined individually so that these exceptions don't have to be repeatedly noted in later analysis and discussion. 
+        There are two individual cases which are interesting as they are exceptions to the parameters of this experiment. These cases will be examined individually so that these exceptions don't have to be repeatedly noted in later analysis and discussion. 
 
-        One student approached the crypto cracking activity with no previous knowledge of RSA. As a prerequisite, CS 561 requires some form of network security course work, RSA is an essential part of network security so these activities are based in the assumption that students have at least a basic familiarity with RSA and public key cryptography. %%
-However, this is not the case for student 05. %%
-Perhaps unsurprisingly, this student had tremendous difficulty while working on the activity. %%
-Although they had commented that the use of hands-on activities in the course CS 561 had been useful and informational, their responses to the survey clearly demonstrates that this particular activity was not helpful to them. %%
-This student received the maximal guidance instructions, but stated that the amount of guidance was inadequate, and that they were lost and unsure how to proceed. %%
-They spent 3 hours working on the activity, but was unable to complete any of the tasks. %%
-While their knowledge of the theoretical aspects of RSA was slightly improved, their understanding of it's usage and implementation did not change. 
+        One student approached the crypto cracking activity with no previous knowledge of RSA. As a prerequisite, CS 561 requires some form of network security course work, RSA is an essential part of network security so these activities are based in the assumption that students have at least a basic familiarity with RSA and public key cryptography. However, this is not the case for student 05. Perhaps unsurprisingly, this student had tremendous difficulty while working on the activity. Although they had commented that the use of hands-on activities in the course CS 561 had been useful and informational, their responses to the survey clearly demonstrates that this particular activity was not helpful to them. This student received the maximal guidance instructions, but stated that the amount of guidance was inadequate, and that they were lost and unsure how to proceed. They spent 3 hours working on the activity, but was unable to complete any of the tasks. While their knowledge of the theoretical aspects of RSA was slightly improved, their understanding of it's usage and implementation did not change. 
 
-        The other exception involves student 12. %%
-The design of the materials did not account for unintended solutions as the design focused on students working through each task in order to learn. %%
-This student was able to find an unintended solution to the activity, which allowed them to bypass most of the work. %%
-It should also be noted that they were already quite familiar with the RSA. Using the intermediate guidance instruction set, they used an online tool which automatically cracked the public keys for them, bypassing the need for them to discover and exploit each key's weakness. %%
-While their knowledge of the theory was not changed, their knowledge of RSA's implementation was greatly improved. 
+        The other exception involves student 12. The design of the materials did not account for unintended solutions as the design focused on students working through each task in order to learn. This student was able to find an unintended solution to the activity, which allowed them to bypass most of the work. It should also be noted that they were already quite familiar with the RSA. Using the intermediate guidance instruction set, they used an online tool which automatically cracked the public keys for them, bypassing the need for them to discover and exploit each key's weakness. While their knowledge of the theory was not changed, their knowledge of RSA's implementation was greatly improved. 
 
     \subsection{Impact of Instructions}
         \subsubsection*{Minimal Guidance}
-            Of the three groups of students, those with the minimal guidance instructions certainly had the poorest performance. %%
-Only 1 student was able to may any significant progress in the activity, and they were only able to complete the first of three tasks. %%
-This group of students also spent the least amount of time working on this task; %%
-this group worked on this activity for an average of 4 hours, with each student individually spending 2 to 5 hours. %%
-Of these, half felt that they could have learned more about RSA if they had spent their time differently, and one of the students did not answer the question. 
+            Of the three groups of students, those with the minimal guidance instructions certainly had the poorest performance. 
+            Only 1 student was able to may any significant progress in the activity, and they were only able to complete the first of three tasks. 
+            This group of students also spent the least amount of time working on this task; 
+            this group worked on this activity for an average of 4 hours, with each student individually spending 2 to 5 hours. 
+            Of these, half felt that they could have learned more about RSA if they had spent their time differently, and one of the students did not answer the question. 
 
-            In regards to learning outcomes, the students also did not perform well. %%
-Half saw a slight improvement in their theoretical understanding of RSA, 1 saw no improvement and 1 saw great improvement; %%
-all 4 slightly improved their practical understanding of RSA. 
+            In regards to learning outcomes, the students also did not perform well. 
+            Half saw a slight improvement in their theoretical understanding of RSA, 1 saw no improvement and 1 saw great improvement; 
+            all 4 slightly improved their practical understanding of RSA. 
 
-            Lastly, all 4 students said that they would greatly benefit from more guidance. %%
-If given less guidance 3 students said that would have taken more time, or otherwise have been completely lost. %%
-However, the last participant, student 03, was unsure. %%
-This student compared their experience working on this activity to their experience with CTFs, stating how CTFs similarly offer very little guidance, but despite this they are able to complete the challenges. %%
-That student also did not think that any changes to the activity were required. 
+            Lastly, all 4 students said that they would greatly benefit from more guidance. 
+            If given less guidance 3 students said that would have taken more time, or otherwise have been completely lost. 
+            However, the last participant, student 03, was unsure. 
+            This student compared their experience working on this activity to their experience with CTFs, stating how CTFs similarly offer very little guidance, but despite this they are able to complete the challenges. 
+            That student also did not think that any changes to the activity were required. 
             
-            In their feedback, this group distinguished between the activity, and the instructions they received. %%
-They all felt positively about the activity despite the difficulties they encountered, however they could not say the same about other aspects. %%
-Two students disliked the lack of guidance, with one remarking that they \say{felt very \say{in over my head}}. %%
-One student complained about a technical issue, which prevented them from accessing the activity. %%
-Lastly student 03 liked the activity, but only had a limited amount of time to work on the activity because of other assignments. 
+            In their feedback, this group distinguished between the activity, and the instructions they received. 
+            They all felt positively about the activity despite the difficulties they encountered, however they could not say the same about other aspects. 
+            Two students disliked the lack of guidance, with one remarking that they \say{felt very \say{in over my head}}. 
+            One student complained about a technical issue, which prevented them from accessing the activity. 
+            Lastly student 03 liked the activity, but only had a limited amount of time to work on the activity because of other assignments. 
         
         \subsubsection*{Intermediate Guidance}
-            This group of students had the highest rate of success. %%
-2 students were able to complete the challenge, 1 was able to complete the first task, and one (student 02) did not make significant progress. %%
-They also spent substantially more time working on the assignment, spending approximately 6.5 hours on average, with each student spending between 1 to 10 hours.
+            This group of students had the highest rate of success. 
+            2 students were able to complete the challenge, 1 was able to complete the first task, and one (student 02) did not make significant progress. 
+            They also spent substantially more time working on the assignment, spending approximately 6.5 hours on average, with each student spending between 1 to 10 hours.
 
-            On average, this group also had improved learning outcomes. %%
-While only 1 student greatly improved their understanding of the theory behind RSA ---%%
- with the rest seeing no improvement ---%%
- all reportedly improved their practical knowledge of RSA, with 1 student seeing slight improvement and 3 seeing great improvement. 
+            On average, this group also had improved learning outcomes. 
+            While only 1 student greatly improved their understanding of the theory behind RSA --- 
+            with the rest seeing no improvement --- 
+            all reportedly improved their practical knowledge of RSA, with 1 student seeing slight improvement and 3 seeing great improvement. 
 
-            In regards to the guidance they received, it's important to note that as part of the instructions, they were provided my email and encouraged to ask questions if they encountered a problem not addressed by the instructions. %%
-All but student 02 did reach out with questions. %%
-When asked about the amount of guidance they received, 2 believed that more guidance would have been beneficial. The other two had more mixed responses. %%
-One believed that any more guidance would have been tantamount to hand-holding, and that they would have learned more, but would \say{hinder my ability to figure out solutions on my own}. %%
-The other student remarked that increased guidance would not have impacted their learning at all. %%
-However, with less guidance, all 4 students would have taken much more time to complete the activity, or otherwise would have been lost. 
+            In regards to the guidance they received, it's important to note that as part of the instructions, they were provided my email and encouraged to ask questions if they encountered a problem not addressed by the instructions. 
+            All but student 02 did reach out with questions. 
+            When asked about the amount of guidance they received, 2 believed that more guidance would have been beneficial. 
+            The other two had more mixed responses. One believed that any more guidance would have been tantamount to hand-holding, and that they would have learned more, but would \say{hinder my ability to figure out solutions on my own}. 
+            The other student remarked that increased guidance would not have impacted their learning at all. 
+            However, with less guidance, all 4 students would have taken much more time to complete the activity, or otherwise would have been lost. 
 
-            In their feedback, student 02 asked for more guidance. %%
-The other 3 students reflected positively on the challenge overall, but were frustrated by the many technical issues that were encountered. 
+            In their feedback, student 02 asked for more guidance. 
+            The other 3 students reflected positively on the challenge overall, but were frustrated by the many technical issues that were encountered. 
 
         \subsubsection*{Maximal Guidance}
-            This last group of students received the maximal guidance instructions. %%
-This group included student 05, as their results have been already addressed and are largely an outlier, they will be excluded from this analysis. 
+            This last group of students received the maximal guidance instructions. 
+            This group included student 05, as their results have been already addressed and are largely an outlier, they will be excluded from this analysis. 
 
-            This group had moderate success, one was able to complete the activity, one completed the first task, and one made no substantial progress. %%
-These students spent between 2 to 8 hours on the activity, working for about 5$\frac{1}{3}$ hours on average. %%
-Unlike the other groups, they all felt that this was the most effective use of their time to learn about RSA. 
+            This group had moderate success, one was able to complete the activity, one completed the first task, and one made no substantial progress. 
+            These students spent between 2 to 8 hours on the activity, working for about 5$\frac{1}{3}$ hours on average. 
+            Unlike the other groups, they all felt that this was the most effective use of their time to learn about RSA. 
 
-            This group also had excellent learning outcomes. %%
-2 students greatly improved their knowledge of RSA both theoretically and practically, while 1 saw slight improvement in those areas. 
+            This group also had excellent learning outcomes. 
+            2 students greatly improved their knowledge of RSA both theoretically and practically, while 1 saw slight improvement in those areas. 
 
-            Furthermore, all of the students felt that the instructions provided were sufficient, with 2 explicitly stating that any more guidance would have negatively impacted their learning. %%
-Conversely, they all agreed that less guidance would have hindered their ability to work on this activity and to learn.
+            Furthermore, all of the students felt that the instructions provided were sufficient, with 2 explicitly stating that any more guidance would have negatively impacted their learning. 
+            Conversely, they all agreed that less guidance would have hindered their ability to work on this activity and to learn.
 
 
 \section{Skills-Based Learning}
     \subsection{Impact of Instructions}
         \subsubsection*{Minimal Guidance}
-            Much like with the other activity, the group that received the minimal guidance instructions had the worst outcomes. %%
-2 students were able to make any substantial progress, one student was able to locate the hash of the passwords, and the last student was able to reveal the original text of the password. %%
-None were able to complete the challenge. %%
-1 student did not answer how much time they spent on the activity, the other students spent between 45 minutes to 3 hours working on this activity. %%
-Furthermore, 3 of the 4 believed that they could have learned more effectively with a different approach.
+            Much like with the other activity, the group that received the minimal guidance instructions had the worst outcomes. 
+            2 students were able to make any substantial progress, one student was able to locate the hash of the passwords, and the last student was able to reveal the original text of the password. 
+            None were able to complete the challenge. 
+            1 student did not answer how much time they spent on the activity, the other students spent between 45 minutes to 3 hours working on this activity. 
+            Furthermore, 3 of the 4 believed that they could have learned more effectively with a different approach.
 
-            On average, their learning outcomes were also the worst. %%
-Only one participant said that their understanding of reverse engineering had improved at all, although for this student it improved greatly. 
+            On average, their learning outcomes were also the worst. 
+            Only one participant said that their understanding of reverse engineering had improved at all, although for this student it improved greatly. 
 
-            Lastly, when asked about guidance, they believed that more guidance would have been helpful, and that less guidance would not have improved their experience. %%
-Unfortunately, the student which was able to reveal the password was unable to complete the challenge because of technical issues with the activity. 
+            Lastly, when asked about guidance, they believed that more guidance would have been helpful, and that less guidance would not have improved their experience. 
+            Unfortunately, the student which was able to reveal the password was unable to complete the challenge because of technical issues with the activity. 
 
         \subsubsection*{Intermediate Guidance}
-            The group with the intermediate guidance instructions saw a similar, level of success. %%
-As with the previous group, one student was able to reveal the password, one was able to locate the password hash, with the remaining students not making much progress. %%
-They also spent a similar amount of time working on the activity. %%
-2 students spent 3 hours, and 1 student spend a single hour, and 1 student also did not respond to this question. %%
-Again, only 1 student felt that this was an effective way to spend their time learning about reverse engineering. 
+            The group with the intermediate guidance instructions saw a similar, level of success. 
+            As with the previous group, one student was able to reveal the password, one was able to locate the password hash, with the remaining students not making much progress. 
+            They also spent a similar amount of time working on the activity. 
+            2 students spent 3 hours, and 1 student spend a single hour, and 1 student also did not respond to this question. Again, only 1 student felt that this was an effective way to spend their time learning about reverse engineering. 
 
-            Despite their progress being similar, their learning outcomes were marginally different. %%
-In this case, all students reported that their understanding or reverse engineering at least improved slightly. 
+            Despite their progress being similar, their learning outcomes were marginally different. 
+            In this case, all students reported that their understanding or reverse engineering at least improved slightly. 
 
-            In response to the amount of guidance, their responses were more mixed than the previous group. %%
-1 student said that the instructions were sufficient, and another said that \say{I may have completed it faster but I feel I was on a way to complete it.} This group also has a mixed response in regards to reducing the amount of guidance. %%
-2 believed that they would have been able to complete the activity even with less guidance, however the other 2 disagreed, believing that more is necessary. 
+            In response to the amount of guidance, their responses were more mixed than the previous group. 
+            1 student said that the instructions were sufficient, and another said that \say{I may have completed it faster but I feel I was on a way to complete it.} 
+            This group also has a mixed response in regards to reducing the amount of guidance. 
+            2 believed that they would have been able to complete the activity even with less guidance, however the other 2 disagreed, believing that more is necessary. 
 
         \subsubsection*{Maximal Guidance}
-            This last group had the greatest amount of success in terms of completing the activity. %%
-Although 2 made no progress, the other half were able to complete the activity. %%
-This group also spent substantially longer working on it; %%
-ranging from 2 to 10 hours, this group spent around 6 hours on average working on the activity. %%
-Despite this, they also had slightly more mixed views about how well their time was spent. %%
-2 students believed that they could have learned more in the same time with a different approach, 1 thought this was a fair use of their time, and 1 did not respond to the question. 
+            This last group had the greatest amount of success in terms of completing the activity. 
+            Although 2 made no progress, the other half were able to complete the activity. 
+            This group also spent substantially longer working on it; 
+            ranging from 2 to 10 hours, this group spent around 6 hours on average working on the activity. 
+            Despite this, they also had slightly more mixed views about how well their time was spent. 
+            2 students believed that they could have learned more in the same time with a different approach, 1 thought this was a fair use of their time, and 1 did not respond to the question. 
 
-            Their learning outcomes have also somewhat improved. %%
-Although 1 student said that their knowledge did not improve at all, 2 said that it greatly improved, while 1 only slightly improved their knowledge of reverse engineering.
+            Their learning outcomes have also somewhat improved. 
+            Although 1 student said that their knowledge did not improve at all, 2 said that it greatly improved, while 1 only slightly improved their knowledge of reverse engineering.
 
-            Finally, 2 of the students believed that the instruction they received were appropriate, while 2 wanted more guidance. %%
-While one student remarked that less guidance may have improved their learning, they also stated how this would have taken substantially more time. %%
-Overall, all 4 were in agreement that less instruction would not have been a net positive. 
+            Finally, 2 of the students believed that the instruction they received were appropriate, while 2 wanted more guidance. 
+            While one student remarked that less guidance may have improved their learning, they also stated how this would have taken substantially more time. 
+            Overall, all 4 were in agreement that less instruction would not have been a net positive. 
 
     \subsection{Impact of Experience}
-        In this case, there was another pronounced trend in the data, between those who have previous experience using reverse engineering, and those who were able to make progress. %%
-Using Fisher's exact test indicates that there is an association between a student's previous experience with reverse engineering, and whether they made any progress (two-tailed $p=0.0606$). 
+        In this case, there was another pronounced trend in the data, between those who have previous experience using reverse engineering, and those who were able to make progress. 
+        Using Fisher's exact test indicates that there is an association between a student's previous experience with reverse engineering, and whether they made any progress (two-tailed $p=0.0606$). 
                 
