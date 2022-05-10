@@ -139,6 +139,18 @@ This is an obvious logical next step, however because the sample is so small, co
 While we can reasonably assert that increased guidance has a positive effect on practical learning outcomes in regards to content-based knowledge such as RSA, the evidence is less conclusive in regards to skill-based learning. 
 
         
+    \section{Instructor Access}
+        One of the greatest indicators of success was instructor access. %%
+In the crypto cracking activity, 4 students had contacted me (the instructor). %%
+Of these 4 students, 50\
+        The students without access to the instructor fared much poorer across all three categories. %%
+In this group, only 12.5\
+        Superficially, this comparison would seem to offer resounding support for the intermediate guidance approach. %%
+However inspecting the student feedback allows us to make a different inference. %%
+In contacting the instructor, all 4 students questions involved technical problems owing to the implementation of the activity, rather than problem-solving questions. %%
+Furthermore, students frequently complain about being frustrated by technical issues in their feedback. %%
+This is a problem with the design of the experiment itself, and unfortunately it is impossible to control for this in our data set. 
+
 \section{Practical Considerations}
     While it serves well to discuss these activities in the abstract, there are also practical considerations which must be made. %%
 Given that these activities are intended for educational purposes, they will naturally be included as some kind of course work.
@@ -154,6 +166,32 @@ On the other hand, if all of the information is front-loaded such that the stude
         Another serious consideration when incorporating these activities into an educational environment is the amount of time required to work on these activities. %%
 While some university professors may operate under the notion that they are entitled to the entirety of a student's time, this is obviously an unrealistic expectation. %%
 When assigning an activity, students should reasonably be able to complete it within some known amount of time. 
+        
+        As was demonstrated by \citeauthor{C-Linehan} and \citeauthor{Z-Zeng}, the amount of time a student spends actively engaged in learning is strongly associated with learning outcomes. %%
+The results of this experiment can corroborate this. %%
+A one-way ANOVA confirmed that the amount of time a student spent on an activity, has a significant impact on their learning outcomes overall $[F(2,31)=12.399, p=0.0001]$.
+        
+        When broken down into each of the three observed learning outcomes (practical knowledge of RSA, theoretical knowledge of RSA, and understanding of reverse engineering), we also find there is a correlation. %%
+In regards to their practical knowledge of RSA, time spent had a strong impact $[F(1,9)=33.965, p<0.001]$. %%
+When the same test was performed between time spent, and theoretical knowledge, a much weaker relationship was found $[F(2, 9)=2.040, p=0.186]$. %%
+This corroborates the earlier finding, that theoretical knowledge learning outcomes more closely is associated with previous knowledge. %%
+However, this was not as strongly demonstrated for learning outcomes for reverse engineering. %%
+Once again, an one-way ANOVA between time spent, and reverse engineering learning outcome found a similar result $[F(2, 7)=2.183, p=0.183]$. 
+
+        When broken down into it's constituent components, the relationship may not be as strong, it is clear that overall, time spent is a reliable indicator of learning outcomes.
+
+        We can be confident that the reported time is a fair reflection of the time they spent actively learning, because completion of this assignment was not mandatory. %%
+All participants were reminded several times that if they could not make progress ---%%
+ i.e. %%
+they were not learning anything ---%%
+ then they should stop working on it. %%
+Therefore, this time is a measurement of how long each student was working productively towards the goal. 
+
+        Owing to the fact that completion was optional, students were afforded the ability to give up part of the way through. %%
+However, in the case where such an assignment is a required part of a course, completion will likely be required to receive the highest grade. %%
+In this case, students who were unable to complete the assignment are likely to spend much more time, incentivized by their desire to maintain good academic standing. %%
+As \citeauthor{Z-Zeng} demonstrated, not all time is made equal. Any additional amount of time a student would have spent after the point which they gave up is likely to be far less productive as far as learning is concerned. %%
+Rather than working productively towards the solution, these students will be spending a large portion of that time trying to learn what they should be learning.
 
                                 
     \subsection{Unintended Solutions}
@@ -165,7 +203,7 @@ First, it codifies a canonical \emph{intended solution}, such that students are 
 This mitigates the possibility that a student accidentally or inadvertently discovers a workaround to the activity. %%
 Secondly, providing explicit instructions ensures that the intended path to completing the activity is also the path of least resistance. %%
 Should students become stuck or frustrated by their inability to make any progress, they may attempt to find a simpler solution, that allows them to \emph{cheat}. %%
-The word cheat is stressed, because without providing explicit directions on what solutions are allowed or not, it isn't very fair to say that only some solutions are valid. 
+The word cheat is stressed, because without providing explicit directions on what solutions are allowed or not, it isn't particularly fair to say that only some solutions are valid. 
 
         
     
