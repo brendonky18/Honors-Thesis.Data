@@ -1,14 +1,15 @@
 \providecommand{\heading}[1]{\section{#1}}
 \providecommand{\subheading}[1]{\subsection{#1}}
 
-\heading{Crypto Cracking}\label{subsec:CTFs-cc}
+\section{Crypto Cracking}\label{subsec:CTFs-cc}
+    The full source code repository for the two activities are available on \href{https://github.com/brendonky18/Honors-Thesis.CTFs}{github}.
 
-    \subheading{Design}
-        \subsubsection*{Going Backwards}
-
-    % put in appendix
-    % In this challenge, there are three virtual computers communicating over a network. Three of the computers act as clients, communicating with a central server. Each client communicates only with the server over a custom protocol that was designed to be a simplified imitation of how TLS uses RSA. The students are able to view the network traffic between the client and host using Wireshark. 
-    \subheading{Instruction Sets}\label{subsubsec:CTFs-cc-instructions}
+    \subsection{Design}
+        This activity is implemented as three docker containers communicating over a virtual docker network with a fourth container acting as the host.
+        The three client containers communicate only with the server over a custom protocol that was designed to be a simplified imitation of how TLS uses RSA. 
+        The students are able to view the network traffic between the client and host using Wireshark. 
+        
+    \subsection{Instruction Sets}\label{subsubsec:CTFs-cc-instructions}
 
         \subsubsection{Basic Instructions}
             \noindent
@@ -132,12 +133,16 @@
                     \textbf{\textit{As a final reminder, please do not look at the other instructions.}}
             }
 \newpage
-\heading{Going Backwards}\label{subsec:CTFs-gb}
+\section{Going Backwards}\label{subsec:CTFs-gb}
 
-    \subheading{Design}
-    % TODO: add explanation
+    \subsection{Design}
+        This activity relies on pyftpd, which is an FTP server implemented in python.
+        This server contains a default configuration for a user account with elevated permissions.
+        The objective, is to reverse engineer the pyftpd source code in order to discover this vulnerability.
+        Then the students must reverse the encoding and hash to reveal the password for the default account.
+        This will allow them to access the server and locate the flag. 
 
-    \subheading{Instruction Sets}\label{subsubsec:CTFs-gb-instructions}
+    \subsection{Instruction Sets}\label{subsubsec:CTFs-gb-instructions}
 
         \subsubsection{Basic Instructions}
             {\parindent0pt\singlespacing
