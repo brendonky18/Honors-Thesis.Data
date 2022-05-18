@@ -2,16 +2,40 @@
 \providecommand{\subheading}[1]{\subsection{#1}}
 
 \providecommand{\survey}[1]{
-    \subsection{Student #1}\label{subsec:surveys-s#1}
-        \subsubsection*{Survey 1: Crypto Cracking}
-            \includepdf[pages=-]{../CTF-Surveys/crypto-cracking-surveys/survey1-student#1.pdf}
-        \subsubsection*{Survey 2: Going Backwards}
-            \includepdf[pages=-]{../CTF-Surveys/going-backwards-surveys/survey2-student#1.pdf}
+    
+            \includepdf[
+                pages=1, 
+                clip,
+                trim=0 0 0 1in,
+                offset=0 -1.5in, 
+                pagecommand={
+                    \subsection{Student #1}\label{subsec:surveys-s#1}
+                    \subsubsection*{Survey 1: Crypto Cracking}
+                }
+            ]{../CTF-Surveys/crypto-cracking-surveys/survey1-student#1.pdf}
+        
+            \includepdf[pages=2-]{../CTF-Surveys/crypto-cracking-surveys/survey1-student#1.pdf}
+        
+            \includepdf[
+                pages=1, 
+                clip,
+                trim=0 0 0 1in,
+                offset=0 -1in, 
+                pagecommand={
+                    \subsubsection*{Survey 2: Going Backwards}
+                }
+            ]{../CTF-Surveys/going-backwards-surveys/survey2-student#1.pdf}
+
+            \includepdf[pages=2-]{../CTF-Surveys/going-backwards-surveys/survey2-student#1.pdf}
 }
 
-\section{Student Surveys}
+\section{Data Repository}
     The raw student surveys are available online, however in some cases, parts of this data is missing. 
     To remedy this, I reached out individually and some students were able to provide responses. 
     These responses do not appear in the original PDFs, however they are included in a CSV file, which includes all of the collated data that was collected from the surveys and by contacting students individually. 
 
     The individual surveys and collated data can all be found in a \href{https://github.com/brendonky18/Honors-Thesis.Data}{github repository}.
+
+    The collated data, and original PDFs have also been attached to this document as a compressed zip archive. To view these files you must use a PDF viewer that supports this feature such as adobe acrobat. To view the data, you must right click on the link, and pick the option to \emph{save} the file. Afterwards you may extract and view the data. 
+    
+    \textbf{\textattachfile[color=0 0 0]{../Survey Data.zip}{Survey Data}} (Compressed .zip)

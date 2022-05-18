@@ -50,6 +50,7 @@
 \usepackage{tablefootnote}          %  Footnotes in tables
 \usepackage{float}
 \restylefloat{table}
+\usepackage{attachfile}
 
 \pagenumbering{roman}
 \begin{document}
@@ -57,8 +58,9 @@
     \iffullsubmission        
         \begin{singlespace}
             \input{title.tex}
-            
+    \fi
             \tableofcontents
+    \iffullsubmission
         \end{singlespace}
 
         \chapter*{Abstract}
